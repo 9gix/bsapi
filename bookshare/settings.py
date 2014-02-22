@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'accounts',
     'catalog',
     'ownership',
+    'reservations',
 )
 
 MIDDLEWARE_CLASSES = (
