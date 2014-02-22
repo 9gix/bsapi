@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'catalog',
     'ownership',
     'reservations',
+    'reviews',
 )
 
 MIDDLEWARE_CLASSES = (
