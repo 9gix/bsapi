@@ -1,29 +1,27 @@
 from django.db import models
-from catalog.isbn import checkI10, checkI13
 from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator
 
+from catalog.isbn import checkI10, checkI13
 
-def isbn10_validator(isbn):
-    if not checkI10(isbn):
-        raise ValidationError(u'%s is not a valid ISBN-10' % isbn)
+from autoslug import AutoSlugField
+import pyisbn
 
-def isbn13_validator(isbn):
-    if not checkI13(isbn):
+def isbn_validator(isbn):
+    if not pyisbn.validate(isbn):
         raise ValidationError(u'%s is not a valid ISBN-13' % isbn)
+
+class BookQuerySet(models.query.QuerySet):
+    pass
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True)
-
-    isbn10 = models.CharField(
-            max_length=10, unique=True,
-            validators=[isbn10_validator],
-            help_text="Enter the unique ISBN-10",
-            blank=True, null=True)
+    slug = AutoSlugField(unique=True,
+            populate_from=lambda obj: "%s-%s" % (obj.isbn13, obj.title))
 
     isbn13 = models.CharField(
             max_length=13, unique=True,
-            validators=[isbn13_validator],
+            validators=[MinLengthValidator(13), isbn_validator],
             help_text="Enter the unique ISBN-13",
             blank=True, null=True)
 
@@ -33,4 +31,4 @@ class Book(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-
+    objects = BookQuerySet.as_manager()
