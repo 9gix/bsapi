@@ -149,3 +149,8 @@ LOGIN_REDIRECT_URL = '/'
 
 # Site Framework
 SITE_ID = 1
+
+# Fixture Directory (Initial Data, Dump Data, Test Data, etc.)
+FIXTURE_DIRS = (
+    os.path.join(BASE_DIR, 'fixtures'),
+)
