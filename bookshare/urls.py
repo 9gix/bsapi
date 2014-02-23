@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 
 urlpatterns = patterns('',
@@ -12,4 +13,6 @@ urlpatterns = patterns('',
         include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/',
         include('api.urls', namespace='api')),
-)
+
+    url(r'^$', 'bookshare.views.home', name='homepage'),
+) + staticfiles_urlpatterns()

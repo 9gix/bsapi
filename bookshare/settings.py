@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# The directory for assets which are served to users.
+PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
@@ -88,10 +91,19 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images, client app template)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
+STATIC_ROOT = os.path.join(PUBLIC_DIR, 'static')
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+# User Uploaded Media File (pdf, image, doc, etc. )
+MEDIA_ROOT = os.path.join(PUBLIC_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Django Rest Framework
 REST_FRAMEWORK = {
