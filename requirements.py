@@ -8,4 +8,4 @@ django-debug-toolbar>=1.0.1,<1.1
 gdata>=2.0.18,<2.1
 django-extensions>=1.3.3,<1.4
 bpython>=0.12,<1
-
+celery>=3.1.9,<3.2
