@@ -37,6 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+
+    'api',
     'accounts',
     'catalog',
     'comm',
@@ -87,3 +90,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Django Rest Framework
+REST_FRAMEWORK = {
+
+}
