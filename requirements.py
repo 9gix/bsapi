@@ -5,3 +5,7 @@ pyisbn>=1.0.0,<1.1.0
 markdown>=2.4,<2.5
 django-filter>=0.7,<0.8
 django-debug-toolbar>=1.0.1,<1.1
+gdata>=2.0.18,<2.1
+django-extensions>=1.3.3,<1.4
+bpython>=0.12,<1
+
