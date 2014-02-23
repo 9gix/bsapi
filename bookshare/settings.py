@@ -103,6 +103,19 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 
+# Template Context
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "bookshare.context_processors.site",
+
+)
+
 # Debug Toolbar
 DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.versions.VersionsPanel',
@@ -121,3 +134,6 @@ DEBUG_TOOLBAR_PANELS = [
 
 # Authentication (django.contrib.auth, accounts, or similar apps)
 LOGIN_REDIRECT_URL = '/'
+
+# Site Framework
+SITE_ID = 1
