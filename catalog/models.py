@@ -33,7 +33,6 @@ class Book(models.Model):
             blank=True, null=True)
 
     description = models.TextField(blank=True)
-    date = models.DateField(blank=True, null=True)
     authors = models.ManyToManyField(Author, blank=True)
     publishers = models.ManyToManyField(Publisher, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

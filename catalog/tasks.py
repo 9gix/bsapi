@@ -52,7 +52,6 @@ def update_book_info_task(book_dict, isbn):
             book.publishers.add(publisher)
 
         book.title = book_dict.get('title')
-        book.date = datetime.strptime(book_dict.get('date'), "%Y-%m-%d").date()
         book.description = book_dict.get('description')
 
         signals.post_save.disconnect(sync_book_data, sender=Book)
