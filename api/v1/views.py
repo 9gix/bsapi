@@ -6,7 +6,7 @@ from rest_framework import viewsets
 from catalog.models import Book
 from reservations.models import BookReservation
 from comm.models import Conversation, ConversationMessage
-from ownership.models import UserBook
+from ownership.models import OwnerBook
 from reviews.models import Review
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -18,8 +18,8 @@ class GroupViewSet(viewsets.ModelViewSet):
 class BookViewSet(viewsets.ModelViewSet):
     model = Book
 
-class UserBookViewSet(viewsets.ModelViewSet):
-    model = UserBook
+class OwnerBookViewSet(viewsets.ModelViewSet):
+    model = OwnerBook
 
 class BookReservationViewSet(viewsets.ModelViewSet):
     model = BookReservation

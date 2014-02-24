@@ -12,25 +12,7 @@ def isbn_validator(isbn):
     if not pyisbn.validate(isbn):
         raise ValidationError(u'%s is not a valid ISBN-13' % isbn)
 
-class BookQuerySet(models.query.QuerySet):
-    pass
-
-class Publisher(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
-class Author(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
 class Book(models.Model):
-    title = models.CharField(max_length=100)
-    slug = AutoSlugField(unique=True,
-            populate_from=lambda obj: "%s-%s" % (obj.isbn13, obj.title))
 
     isbn13 = models.CharField(
             max_length=13, unique=True,
@@ -38,21 +20,5 @@ class Book(models.Model):
             help_text="Enter the unique ISBN-13",
             blank=True, null=True)
 
-    description = models.TextField(blank=True)
-    authors = models.ManyToManyField(Author, blank=True)
-    publishers = models.ManyToManyField(Publisher, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    objects = BookQuerySet.as_manager()
-
     def __str__(self):
         return self.isbn13
-
-def sync_book_data(sender, instance, created, **kwargs):
-
-    if instance.isbn13:
-        from catalog.tasks import fetch_and_update_book_info_task
-        fetch_and_update_book_info_task.delay(instance.isbn13)
-
-
-post_save.connect(sync_book_data, sender=Book)

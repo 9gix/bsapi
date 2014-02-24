@@ -1,4 +1,4 @@
 from django.contrib import admin
-from ownership.models import UserBook
+from ownership.models import OwnerBook
 
-admin.site.register(UserBook)
+admin.site.register(OwnerBook)
