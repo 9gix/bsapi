@@ -18,8 +18,14 @@ class BookQuerySet(models.query.QuerySet):
 class Publisher(models.Model):
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 class Author(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
@@ -38,6 +44,9 @@ class Book(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     objects = BookQuerySet.as_manager()
+
+    def __str__(self):
+        return self.isbn13
 
 def sync_book_data(sender, instance, created, **kwargs):
 
