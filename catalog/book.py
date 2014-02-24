@@ -1,5 +1,4 @@
 from gdata.books.service import BookService
-from catalog.models import Book
 
 
 def query_book_info(isbn):
@@ -9,7 +8,7 @@ def query_book_info(isbn):
             [('google_id', 'dwSfGQAACAAJ'),
             ('ISBN', '0132350882'),
             ('ISBN', '9780132350884')]"""
-        ids = [ids_keyval[1] for ids_keyval in book.get('identifier', [])]
+        ids = [ids_keyval[1] for ids_keyval in book.get('identifiers', [])]
         return isbn in ids 
 
     service = BookService()
