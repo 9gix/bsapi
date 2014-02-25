@@ -6,6 +6,9 @@ class UserDetail(models.Model):
     user = models.OneToOneField(User)
     address = models.TextField()
 
+    def __str__(self):
+        return "%s's Detail" % self.user
+
 def create_user_detail(sender, instance, created, **kwargs):
     if created:
         UserDetail.objects.get_or_create(user=instance)
