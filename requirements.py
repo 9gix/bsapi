@@ -1,3 +1,4 @@
+pillow>=2.4.0,<2.5
 django-autoslug>=1.7.2,<1.8
 pyisbn>=1.0.0,<1.1.0
 # djangorestframework>=2.3.12,<2.4.0

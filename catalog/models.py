@@ -12,7 +12,10 @@ def isbn_validator(isbn):
     if not pyisbn.validate(isbn):
         raise ValidationError(u'%s is not a valid ISBN-13' % isbn)
 
-class Book(models.Model):
+class BookGeneric(models.Model):
+    """This model is a generic book attribute regardless of the owner
+    such as isbn, title, author, version, publisher, etc. as needed 
+    """
 
     isbn13 = models.CharField(
             max_length=13, unique=True,

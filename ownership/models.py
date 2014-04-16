@@ -1,15 +1,17 @@
 from django.db import models
 
-class Owner(models.Model):
-    user = models.OneToOneField('auth.User')
-    books = models.ManyToManyField('catalog.Book', through='OwnerBook')
-
-    def __str__(self):
-        return "Owner %s" % self.user
-
-class OwnerBook(models.Model):
-    owner = models.ForeignKey(Owner)
-    book = models.ForeignKey('catalog.Book')
+class Book(models.Model):
+    """This model contains the information about the book owned by the owner
+    such as book condition, etc.
+    """
+    book_generic = models.ForeignKey('catalog.BookGeneric')
+    owner = models.ForeignKey('auth.User')
 
     def __str__(self):
         return "%s owns %s" % (self.owner, self.book)
+
+class BookPicture(models.Model):
+    book = models.ForeignKey('ownership.Book')
+    image = models.ImageField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)

@@ -15,7 +15,7 @@ class BookReservation(models.Model):
 
 
     # all database fields
-    user_book = models.ForeignKey('ownership.OwnerBook')
+    book = models.ForeignKey('ownership.Book')
     borrower = models.ForeignKey('auth.User')
     borrow_on = models.DateField()
     due_on = models.DateField()

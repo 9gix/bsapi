@@ -1,6 +1,4 @@
 from django.contrib import admin
-from ownership.models import OwnerBook, Owner
+from ownership.models import Book
 
-admin.site.register(OwnerBook)
-admin.site.register(Owner)
-
+admin.site.register(Book)

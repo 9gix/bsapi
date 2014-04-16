@@ -1,4 +1,4 @@
 from django.contrib import admin
-from catalog.models import Book
+from catalog.models import BookGeneric
 
-admin.site.register(Book)
+admin.site.register(BookGeneric)

@@ -3,10 +3,10 @@ from django.contrib.auth.models import User, Group
 
 from rest_framework import viewsets
 
-from catalog.models import Book
+from catalog.models import BookGeneric
 from reservations.models import BookReservation
 from comm.models import Conversation, ConversationMessage
-from ownership.models import OwnerBook
+from ownership.models import Book
 from reviews.models import Review
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -15,11 +15,11 @@ class UserViewSet(viewsets.ModelViewSet):
 class GroupViewSet(viewsets.ModelViewSet):
     model = Group
 
+class BookGenericViewSet(viewsets.ModelViewSet):
+    model = BookGeneric
+
 class BookViewSet(viewsets.ModelViewSet):
     model = Book
-
-class OwnerBookViewSet(viewsets.ModelViewSet):
-    model = OwnerBook
 
 class BookReservationViewSet(viewsets.ModelViewSet):
     model = BookReservation

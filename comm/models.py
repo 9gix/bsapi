@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Conversation(models.Model):
-    user_book = models.ForeignKey('ownership.OwnerBook')
+    user_book = models.ForeignKey('ownership.Book')
     borrower = models.ForeignKey('auth.User')
 
 class ConversationMessage(models.Model):

@@ -21,14 +21,14 @@
     "fields": {
         "isbn13": "9780321965516"
     },
-    "model": "catalog.book",
+    "model": "catalog.bookgeneric",
     "pk": 4
 },
 {
     "fields": {
         "isbn13": "9780201734843"
     },
-    "model": "catalog.book",
+    "model": "catalog.bookgeneric",
     "pk": 6
 }
 ]
