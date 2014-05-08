@@ -3,11 +3,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'bookshare.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'oauth2/', include('provider.oauth2.urls', namespace='oauth2')),
 
     url(r'^api/auth/', 
         include('rest_framework.urls', namespace='rest_framework')),
@@ -15,4 +14,5 @@ urlpatterns = patterns('',
         include('api.urls', namespace='api')),
 
     url(r'^$', 'bookshare.views.home', name='homepage'),
+
 ) + staticfiles_urlpatterns()

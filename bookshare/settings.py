@@ -41,9 +41,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'rest_framework',
-    'django_extensions',
     #'debug_toolbar',
+    'django_extensions',
+    'provider',
+    'provider.oauth2',
+    'rest_framework',
 
     'api',
     'accounts',
@@ -108,7 +110,11 @@ MEDIA_URL = '/media/'
 
 # Django Rest Framework
 REST_FRAMEWORK = {
-
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.OAuth2Authentication',
+    )
 }
 
 # HTML Templates
