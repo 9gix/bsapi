@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 
 from catalog.models import BookGeneric
 from reservations.models import BookReservation
@@ -11,6 +11,7 @@ from reviews.models import Review
 
 class UserViewSet(viewsets.ModelViewSet):
     model = User
+    permission_classes = (permissions.IsAdminUser,)
 
 class GroupViewSet(viewsets.ModelViewSet):
     model = Group
