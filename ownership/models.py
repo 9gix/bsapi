@@ -8,7 +8,7 @@ class Book(models.Model):
     owner = models.ForeignKey('auth.User')
 
     def __str__(self):
-        return "%s owns %s" % (self.owner, self.book)
+        return "%s owns %s" % (self.owner, self.book_generic)
 
 class BookPicture(models.Model):
     book = models.ForeignKey('ownership.Book')
