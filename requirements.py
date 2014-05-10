@@ -26,3 +26,5 @@ django-extensions>=1.3.3,<1.4
 bpython>=0.12,<1
 
 celery>=3.1.9,<3.2
+
+django-grappelli>=2.5.3,<2.6
