@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 
 from rest_framework import viewsets, permissions
+from api import permissions as custom_permissions
 
 from catalog.models import BookGeneric
 from reservations.models import BookReservation
@@ -21,6 +22,13 @@ class BookGenericViewSet(viewsets.ModelViewSet):
 
 class BookViewSet(viewsets.ModelViewSet):
     model = Book
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+        custom_permissions.IsOwnerOrReadOnly, 
+    )
+
+    def pre_save(self, obj):
+        obj.owner = self.request.user
 
 class BookReservationViewSet(viewsets.ModelViewSet):
     model = BookReservation
