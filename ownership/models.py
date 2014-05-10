@@ -7,8 +7,11 @@ class Book(models.Model):
     book_generic = models.ForeignKey('catalog.BookGeneric')
     owner = models.ForeignKey('auth.User')
 
+    class Meta:
+        unique_together = ('book_generic', 'owner')
+
     def __str__(self):
-        return "%s owns %s" % (self.owner, self.book_generic)
+        return "%s (owner: %s)" % (self.book_generic, self.owner)
 
 class BookPicture(models.Model):
     book = models.ForeignKey('ownership.Book')
