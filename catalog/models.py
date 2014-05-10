@@ -9,8 +9,10 @@ import pyisbn
 from catalog.isbn import checkI10, checkI13
 
 def isbn_validator(isbn):
-    if not pyisbn.validate(isbn):
-        raise ValidationError(u'%s is not a valid ISBN-13' % isbn)
+    try:
+        pyisbn.validate(isbn)
+    except pyisbn.IsbnError as err:
+        raise ValidationError(err.message)
 
 class BookGeneric(models.Model):
     """This model is a generic book attribute regardless of the owner
