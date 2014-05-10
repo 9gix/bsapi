@@ -19,6 +19,60 @@
 },
 {
     "fields": {
+        "username": "user1",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2014-05-10T12:36:50.406Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$12000$SW1LX9LMR0ch$ISfi6wkeM+WdyBu5sQofnKbGxY9ww5s7LVMg5K69FOM=",
+        "email": "",
+        "date_joined": "2014-05-10T12:36:50.406Z"
+    },
+    "model": "auth.user",
+    "pk": 3
+},
+{
+    "fields": {
+        "username": "user2",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2014-05-10T12:36:50.485Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$12000$6dMYgeCpfs5z$niGSgfwp4I+AiJxAmU6rXz45wogpG/w0/dmN8anXs0w=",
+        "email": "",
+        "date_joined": "2014-05-10T12:36:50.485Z"
+    },
+    "model": "auth.user",
+    "pk": 4
+},
+{
+    "fields": {
+        "username": "user3",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2014-05-10T12:36:50.594Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$12000$axzPO64mrfuP$kvlEZBELC4wrYKqYYN3emi5diZUO9JRf83BuXU40FiU=",
+        "email": "",
+        "date_joined": "2014-05-10T12:36:50.594Z"
+    },
+    "model": "auth.user",
+    "pk": 5
+},
+{
+    "fields": {
         "isbn13": "9780321965516"
     },
     "model": "catalog.bookgeneric",
@@ -30,5 +84,82 @@
     },
     "model": "catalog.bookgeneric",
     "pk": 6
+},
+{
+    "fields": {
+        "isbn13": "9780345535528"
+    },
+    "model": "catalog.bookgeneric",
+    "pk": 7
+},
+{
+    "fields": {
+        "isbn13": "9780465050659"
+    },
+    "model": "catalog.bookgeneric",
+    "pk": 8
+},
+{
+    "fields": {
+        "isbn13": "9780201633610"
+    },
+    "model": "catalog.bookgeneric",
+    "pk": 9
+},
+{
+    "fields": {
+        "owner": 3,
+        "book_generic": 4
+    },
+    "model": "ownership.book",
+    "pk": 1
+},
+{
+    "fields": {
+        "owner": 3,
+        "book_generic": 6
+    },
+    "model": "ownership.book",
+    "pk": 2
+},
+{
+    "fields": {
+        "owner": 4,
+        "book_generic": 7
+    },
+    "model": "ownership.book",
+    "pk": 3
+},
+{
+    "fields": {
+        "owner": 4,
+        "book_generic": 8
+    },
+    "model": "ownership.book",
+    "pk": 4
+},
+{
+    "fields": {
+        "owner": 5,
+        "book_generic": 9
+    },
+    "model": "ownership.book",
+    "pk": 5
+},
+{
+    "fields": {
+        "owner": 5,
+        "book_generic": 4
+    },
+    "model": "ownership.book",
+    "pk": 6
+},
+{
+    "fields": {
+        "owner": 4,
+        "book_generic": 6
+    },
+    "model": "ownership.book",
+    "pk": 7
 }
 ]
