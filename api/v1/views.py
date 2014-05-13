@@ -5,6 +5,7 @@ from rest_framework import viewsets, permissions
 from api import permissions as custom_permissions
 
 from catalog.models import BookProfile
+from catalog.serializers import BookProfileSerializer
 from reservations.models import BookReservation
 from comm.models import Conversation, ConversationMessage
 from ownership.models import Book
@@ -19,6 +20,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 class BookProfileViewSet(viewsets.ModelViewSet):
     model = BookProfile
+    serializer_class = BookProfileSerializer
 
 class BookViewSet(viewsets.ModelViewSet):
     model = Book
