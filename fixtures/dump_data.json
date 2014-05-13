@@ -73,38 +73,99 @@
 },
 {
     "fields": {
-        "isbn13": "9780321965516"
+        "publisher": 4,
+        "published_on": "2014-01-03",
+        "authors": [
+            5
+        ],
+        "isbn13": "9780321965516",
+        "title": "Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability"
     },
-    "model": "catalog.bookgeneric",
+    "model": "catalog.bookprofile",
     "pk": 4
 },
 {
     "fields": {
-        "isbn13": "9780201734843"
+        "publisher": 3,
+        "published_on": "2002-11-22",
+        "authors": [
+            3,
+            4
+        ],
+        "isbn13": "9780201734843",
+        "title": "C++ Templates: The Complete Guide"
     },
-    "model": "catalog.bookgeneric",
+    "model": "catalog.bookprofile",
     "pk": 6
 },
 {
     "fields": {
-        "isbn13": "9780345535528"
+        "publisher": 2,
+        "published_on": "2013-10-29",
+        "authors": [
+            1
+        ],
+        "isbn13": "9780345535528",
+        "title": "A Game of Thrones"
     },
-    "model": "catalog.bookgeneric",
+    "model": "catalog.bookprofile",
     "pk": 7
 },
 {
     "fields": {
-        "isbn13": "9780465050659"
+        "name": "Eugene"
     },
-    "model": "catalog.bookgeneric",
-    "pk": 8
+    "model": "catalog.author",
+    "pk": 1
 },
 {
     "fields": {
-        "isbn13": "9780201633610"
+        "name": "George Raymond Richard Martin"
     },
-    "model": "catalog.bookgeneric",
-    "pk": 9
+    "model": "catalog.author",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "David Vandevoorde"
+    },
+    "model": "catalog.author",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "Nicolai M. Josuttis"
+    },
+    "model": "catalog.author",
+    "pk": 4
+},
+{
+    "fields": {
+        "name": "Steve Krug"
+    },
+    "model": "catalog.author",
+    "pk": 5
+},
+{
+    "fields": {
+        "name": "Bantam"
+    },
+    "model": "catalog.publisher",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "Addison-Wesley Professional"
+    },
+    "model": "catalog.publisher",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "New Riders"
+    },
+    "model": "catalog.publisher",
+    "pk": 4
 },
 {
     "fields": {
@@ -129,22 +190,6 @@
     },
     "model": "ownership.book",
     "pk": 3
-},
-{
-    "fields": {
-        "owner": 4,
-        "book_profile": 8
-    },
-    "model": "ownership.book",
-    "pk": 4
-},
-{
-    "fields": {
-        "owner": 5,
-        "book_profile": 9
-    },
-    "model": "ownership.book",
-    "pk": 5
 },
 {
     "fields": {

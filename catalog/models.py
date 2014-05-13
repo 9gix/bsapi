@@ -15,11 +15,40 @@ def isbn_validator(isbn):
         raise ValidationError(err.message)
 
 class Author(models.Model):
-    first_name = models.CharField(max_length=45, blank=True)
-    last_name = models.CharField(max_length=45)
+    name = models.CharField(max_length=45, help_text="Full Name")
+
+    @property
+    def first_name(self):
+        return self.name.split()[:1]
+
+    @property
+    def given_name(self):
+        return self.name.split()[:-1] or self.name
+
+    @property
+    def last_name(self):
+        return "".join(self.name.split()[-1:])
+
+    @property
+    def apa_name(self):
+        """APA style name for citation or reference
+        e.g. Ned Eddard Stark into Stark, N. E."""
+        if len(self.name.split()) <= 1:
+            return self.name
+
+        initial = reduce(
+            lambda initial, name: "{}{}. ".format(initial, name[0]), 
+            self.name.split()[:-1], "").strip()
+        return "{}, {}".format(self.last_name, initial)
+
+    def __str__(self):
+        return self.apa_name
 
 class Publisher(models.Model):
     name = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.name
 
 class BookProfile(models.Model):
     """This model is a generic book attribute regardless of the owner
@@ -36,6 +65,7 @@ class BookProfile(models.Model):
 
     publisher = models.ForeignKey('catalog.Publisher')
     authors = models.ManyToManyField('catalog.Author')
+    published_on = models.DateField()
 
     def __str__(self):
-        return self.isbn13
+        return "{}, {}".format(self.title, self.isbn13)
