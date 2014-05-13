@@ -13,6 +13,8 @@ pyisbn>=1.0.0,<1.1.0
 # django-oauth2-provider>=0.2.6,<0.3
 -e git+git@github.com:9gix/django-oauth2-provider.git@master#egg=django-oauth2-provider
 
+django-cors-headers>=0.12,<0.13
+
 markdown>=2.4,<2.5
 
 django-filter>=0.7,<0.8
