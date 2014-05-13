@@ -12,7 +12,7 @@ router.register(r'conversations', views.ConversationViewSet)
 router.register(r'messages', views.ConversationMessageViewSet)
 router.register(r'reservations', views.BookReservationViewSet)
 router.register(r'reviews', views.ReviewViewSet)
-router.register(r'books-generic', views.BookGenericViewSet)
+router.register(r'books-profile', views.BookProfileViewSet)
 router.register(r'books', views.BookViewSet)
 
 urlpatterns = patterns('',

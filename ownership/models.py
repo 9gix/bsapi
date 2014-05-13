@@ -4,14 +4,14 @@ class Book(models.Model):
     """This model contains the information about the book owned by the owner
     such as book condition, etc.
     """
-    book_generic = models.ForeignKey('catalog.BookGeneric')
+    book_profile = models.ForeignKey('catalog.BookProfile')
     owner = models.ForeignKey('auth.User')
 
     class Meta:
-        unique_together = ('book_generic', 'owner')
+        unique_together = ('book_profile', 'owner')
 
     def __str__(self):
-        return "%s (owner: %s)" % (self.book_generic, self.owner)
+        return "%s (owner: %s)" % (self.book_profile, self.owner)
 
 class BookPicture(models.Model):
     book = models.ForeignKey('ownership.Book')

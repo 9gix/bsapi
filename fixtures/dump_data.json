@@ -109,7 +109,7 @@
 {
     "fields": {
         "owner": 3,
-        "book_generic": 4
+        "book_profile": 4
     },
     "model": "ownership.book",
     "pk": 1
@@ -117,7 +117,7 @@
 {
     "fields": {
         "owner": 3,
-        "book_generic": 6
+        "book_profile": 6
     },
     "model": "ownership.book",
     "pk": 2
@@ -125,7 +125,7 @@
 {
     "fields": {
         "owner": 4,
-        "book_generic": 7
+        "book_profile": 7
     },
     "model": "ownership.book",
     "pk": 3
@@ -133,7 +133,7 @@
 {
     "fields": {
         "owner": 4,
-        "book_generic": 8
+        "book_profile": 8
     },
     "model": "ownership.book",
     "pk": 4
@@ -141,7 +141,7 @@
 {
     "fields": {
         "owner": 5,
-        "book_generic": 9
+        "book_profile": 9
     },
     "model": "ownership.book",
     "pk": 5
@@ -149,7 +149,7 @@
 {
     "fields": {
         "owner": 5,
-        "book_generic": 4
+        "book_profile": 4
     },
     "model": "ownership.book",
     "pk": 6
@@ -157,7 +157,7 @@
 {
     "fields": {
         "owner": 4,
-        "book_generic": 6
+        "book_profile": 6
     },
     "model": "ownership.book",
     "pk": 7

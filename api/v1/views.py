@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions
 from api import permissions as custom_permissions
 
-from catalog.models import BookGeneric
+from catalog.models import BookProfile
 from reservations.models import BookReservation
 from comm.models import Conversation, ConversationMessage
 from ownership.models import Book
@@ -17,8 +17,8 @@ class UserViewSet(viewsets.ModelViewSet):
 class GroupViewSet(viewsets.ModelViewSet):
     model = Group
 
-class BookGenericViewSet(viewsets.ModelViewSet):
-    model = BookGeneric
+class BookProfileViewSet(viewsets.ModelViewSet):
+    model = BookProfile
 
 class BookViewSet(viewsets.ModelViewSet):
     model = Book
