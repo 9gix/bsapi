@@ -7,6 +7,7 @@ from comm.models import Conversation
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
+router.register(r'users-profile', views.UserProfileViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'conversations', views.ConversationViewSet)
 router.register(r'messages', views.ConversationMessageViewSet)

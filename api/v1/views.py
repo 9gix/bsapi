@@ -4,6 +4,8 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions
 from api import permissions as custom_permissions
 
+from accounts.models import UserProfile
+from accounts.serializers import UserProfileSerializer
 from catalog.models import BookProfile
 from catalog.serializers import BookProfileSerializer
 from reservations.models import BookReservation
@@ -14,6 +16,10 @@ from reviews.models import Review
 class UserViewSet(viewsets.ModelViewSet):
     model = User
     permission_classes = (permissions.IsAdminUser,)
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    model = UserProfile
+    serializer_class = UserProfileSerializer
 
 class GroupViewSet(viewsets.ModelViewSet):
     model = Group
