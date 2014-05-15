@@ -2,10 +2,14 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 
 from rest_framework import viewsets, permissions
+from rest_framework.decorators import action, link, api_view
+from rest_framework.response import Response
+from rest_framework import status
 from api import permissions as custom_permissions
 
 from accounts.models import UserProfile
-from accounts.serializers import UserProfileSerializer
+from accounts.permissions import IsAdminOrIsSelf
+from accounts.serializers import UserSerializer, UserProfileSerializer 
 from catalog.models import BookProfile
 from catalog.serializers import BookProfileSerializer
 from reservations.models import BookReservation
@@ -15,7 +19,14 @@ from reviews.models import Review
 
 class UserViewSet(viewsets.ModelViewSet):
     model = User
-    permission_classes = (permissions.IsAdminUser,)
+    permission_classes = (IsAdminOrIsSelf,)
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return User.objects.all()
+        else:
+            return User.objects.filter(id = self.request.user.id)
 
 class UserProfileViewSet(viewsets.ModelViewSet):
     model = UserProfile

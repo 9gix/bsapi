@@ -67,5 +67,8 @@ class BookProfile(models.Model):
     authors = models.ManyToManyField('catalog.Author')
     published_on = models.DateField()
 
+    owners = models.ManyToManyField('auth.User', through='ownership.Book', 
+            related_name='bookprofiles')
+
     def __str__(self):
         return "{}, {}".format(self.title, self.isbn13)
