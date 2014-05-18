@@ -49,7 +49,6 @@ INSTALLED_APPS = (
     'rest_framework',
     'haystack',
 
-    'api',
     'accounts',
     'catalog',
     'comm',

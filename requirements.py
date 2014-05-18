@@ -33,4 +33,6 @@ celery>=3.1.9,<3.2
 
 elasticsearch>=1.0.0,<1.1
 
+pyelasticsearch>=0.6.1,<0.7
+
 django-haystack>=2.1.0,<2.2
