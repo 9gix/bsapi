@@ -177,6 +177,7 @@ CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:9000',
 )
 
+# Search API
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
