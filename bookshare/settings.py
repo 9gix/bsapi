@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'provider',
     'provider.oauth2',
     'rest_framework',
+    'haystack',
 
     'api',
     'accounts',
@@ -176,3 +177,11 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:9000',
 )
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://127.0.0.1:9200/',
+        'INDEX_NAME': 'bookshare',
+    },
+}

@@ -30,3 +30,7 @@ ipdb>=0.8,<0.9
 bpython>=0.12,<1
 
 celery>=3.1.9,<3.2
+
+elasticsearch>=1.0.0,<1.1
+
+django-haystack>=2.1.0,<2.2
