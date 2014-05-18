@@ -1,5 +1,5 @@
 # django>=1.7,<1.8
--e git+git@github.com:django/django.git@1.7b3#egg=django
+-e git+git@github.com:django/django.git@1.7b4#egg=django
 
 pillow>=2.4.0,<2.5
 
