@@ -11,6 +11,7 @@ def query_book_info(isbn):
         ids = [ids_keyval[1] for ids_keyval in book.get('identifiers', [])]
         return isbn in ids 
 
+    # GET https://www.googleapis.com/books/v1/volumes?q=isbn:<ISBN>
     service = BookService()
     result = service.search('isbn:' + isbn)
 
