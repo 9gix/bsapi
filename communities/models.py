@@ -6,5 +6,5 @@ class Community(models.Model):
     logo = models.ImageField(upload_to='community-logo', blank=True)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
