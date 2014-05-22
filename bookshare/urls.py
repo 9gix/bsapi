@@ -13,6 +13,8 @@ from comm.views import (
 from ownership.views import BookViewSet
 from catalog.views import BookProfileViewSet
 
+from communities.views import CommunityViewSet
+
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'users-profile', UserProfileViewSet)
@@ -21,6 +23,7 @@ router.register(r'conversations', ConversationViewSet)
 router.register(r'messages', ConversationMessageViewSet)
 router.register(r'books-profile', BookProfileViewSet)
 router.register(r'books', BookViewSet)
+router.register(r'communities', CommunityViewSet)
 
 
 urlpatterns = patterns('',
