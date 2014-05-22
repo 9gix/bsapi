@@ -12,9 +12,9 @@ def query_book_info(isbn):
         return isbn in ids 
 
     service = BookService()
-    result = service.search(isbn)
+    result = service.search('isbn:' + isbn)
 
-    result_dict = [book.to_dict() for book in result.entry]
+    result_dict = map(lambda entry: entry.to_dict(), result.entry)
     match_results = filter(match_isbn, result_dict)
 
     return match_results[0] if match_results else None
