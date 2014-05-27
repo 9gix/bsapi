@@ -50,6 +50,9 @@ class Publisher(models.Model):
     def __str__(self):
         return self.name
 
+class Category(models.Model):
+    name = models.CharField(max_length=45)
+
 class BookProfile(models.Model):
     """This model is a generic book attribute regardless of the owner
     such as isbn, title, author, version, publisher, etc. as needed 
@@ -62,9 +65,14 @@ class BookProfile(models.Model):
             blank=True, null=True)
 
     title = models.CharField(max_length=100)
+    subtitle = models.CharField(max_length=255, blank=True)
+
+    thumbnail = models.ImageField(blank=True)
 
     publisher = models.ForeignKey('catalog.Publisher')
     authors = models.ManyToManyField('catalog.Author')
+    categories = models.ManyToManyField('catalog.Category')
+
     published_on = models.DateField()
 
     owners = models.ManyToManyField('auth.User', through='ownership.Book', 
