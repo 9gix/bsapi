@@ -53,6 +53,10 @@ class Publisher(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=45)
 
+    class Meta:
+        verbose_name_plural = 'categories'
+
+
 class BookProfile(models.Model):
     """This model is a generic book attribute regardless of the owner
     such as isbn, title, author, version, publisher, etc. as needed 
