@@ -19,3 +19,9 @@ def query_book_info(isbn):
     match_results = filter(match_isbn, result_dict)
 
     return match_results[0] if match_results else None
+
+def search_book(query):
+    service = BookService()
+    result = service.search(query)
+    return map(lambda entry: entry.to_dict(), result.entry)
+
