@@ -1,210 +1,219 @@
 [
 {
+    "model": "auth.user",
+    "pk": 1,
     "fields": {
+        "groups": [],
         "username": "eugene",
+        "email": "",
         "first_name": "",
-        "last_name": "",
+        "date_joined": "2014-02-22T17:39:07.274Z",
         "is_active": true,
-        "is_superuser": true,
+        "user_permissions": [],
+        "last_name": "",
         "is_staff": true,
-        "last_login": "2014-02-23T15:48:18.378Z",
-        "groups": [],
-        "user_permissions": [],
         "password": "pbkdf2_sha256$12000$buL3cno9F8Ww$j5CFxgrh62c7TxWN+PC0g+CPIvqX8CPV+G6mrbH1Snk=",
-        "email": "",
-        "date_joined": "2014-02-22T17:39:07.274Z"
-    },
-    "model": "auth.user",
-    "pk": 1
+        "last_login": "2014-02-23T15:48:18.378Z",
+        "is_superuser": true
+    }
 },
 {
+    "model": "auth.user",
+    "pk": 3,
     "fields": {
+        "groups": [],
         "username": "user1",
+        "email": "",
         "first_name": "",
-        "last_name": "",
+        "date_joined": "2014-05-10T12:36:50.406Z",
         "is_active": true,
-        "is_superuser": false,
-        "is_staff": false,
-        "last_login": "2014-05-10T12:36:50.406Z",
-        "groups": [],
         "user_permissions": [],
+        "last_name": "",
+        "is_staff": false,
         "password": "pbkdf2_sha256$12000$SW1LX9LMR0ch$ISfi6wkeM+WdyBu5sQofnKbGxY9ww5s7LVMg5K69FOM=",
-        "email": "",
-        "date_joined": "2014-05-10T12:36:50.406Z"
-    },
-    "model": "auth.user",
-    "pk": 3
+        "last_login": "2014-05-10T12:36:50.406Z",
+        "is_superuser": false
+    }
 },
 {
+    "model": "auth.user",
+    "pk": 4,
     "fields": {
+        "groups": [],
         "username": "user2",
+        "email": "",
         "first_name": "",
-        "last_name": "",
+        "date_joined": "2014-05-10T12:36:50.485Z",
         "is_active": true,
-        "is_superuser": false,
-        "is_staff": false,
-        "last_login": "2014-05-10T12:36:50.485Z",
-        "groups": [],
         "user_permissions": [],
+        "last_name": "",
+        "is_staff": false,
         "password": "pbkdf2_sha256$12000$6dMYgeCpfs5z$niGSgfwp4I+AiJxAmU6rXz45wogpG/w0/dmN8anXs0w=",
-        "email": "",
-        "date_joined": "2014-05-10T12:36:50.485Z"
-    },
-    "model": "auth.user",
-    "pk": 4
+        "last_login": "2014-05-10T12:36:50.485Z",
+        "is_superuser": false
+    }
 },
 {
+    "model": "auth.user",
+    "pk": 5,
     "fields": {
-        "username": "user3",
-        "first_name": "",
-        "last_name": "",
-        "is_active": true,
-        "is_superuser": false,
-        "is_staff": false,
-        "last_login": "2014-05-10T12:36:50.594Z",
         "groups": [],
-        "user_permissions": [],
-        "password": "pbkdf2_sha256$12000$axzPO64mrfuP$kvlEZBELC4wrYKqYYN3emi5diZUO9JRf83BuXU40FiU=",
+        "username": "user3",
         "email": "",
-        "date_joined": "2014-05-10T12:36:50.594Z"
-    },
-    "model": "auth.user",
-    "pk": 5
+        "first_name": "",
+        "date_joined": "2014-05-10T12:36:50.594Z",
+        "is_active": true,
+        "user_permissions": [],
+        "last_name": "",
+        "is_staff": false,
+        "password": "pbkdf2_sha256$12000$axzPO64mrfuP$kvlEZBELC4wrYKqYYN3emi5diZUO9JRf83BuXU40FiU=",
+        "last_login": "2014-05-10T12:36:50.594Z",
+        "is_superuser": false
+    }
 },
 {
+    "model": "catalog.bookprofile",
+    "pk": 4,
     "fields": {
-        "publisher": 4,
         "published_on": "2014-01-03",
+        "isbn13": "9780321965516",
         "authors": [
             5
         ],
-        "isbn13": "9780321965516",
-        "title": "Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability"
-    },
-    "model": "catalog.bookprofile",
-    "pk": 4
+        "categories": [],
+        "subtitle": "",
+        "title": "Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability",
+        "thumbnail": "",
+        "publisher": 4
+    }
 },
 {
+    "model": "catalog.bookprofile",
+    "pk": 6,
     "fields": {
-        "publisher": 3,
         "published_on": "2002-11-22",
+        "isbn13": "9780201734843",
         "authors": [
             3,
             4
         ],
-        "isbn13": "9780201734843",
-        "title": "C++ Templates: The Complete Guide"
-    },
-    "model": "catalog.bookprofile",
-    "pk": 6
+        "categories": [],
+        "subtitle": "",
+        "title": "C++ Templates: The Complete Guide",
+        "thumbnail": "",
+        "publisher": 3
+    }
 },
 {
+    "model": "catalog.bookprofile",
+    "pk": 7,
     "fields": {
-        "publisher": 2,
         "published_on": "2013-10-29",
+        "isbn13": "9780345535528",
         "authors": [
             2
         ],
-        "isbn13": "9780345535528",
-        "title": "A Game of Thrones"
-    },
-    "model": "catalog.bookprofile",
-    "pk": 7
+        "categories": [],
+        "subtitle": "",
+        "title": "A Game of Thrones",
+        "thumbnail": "",
+        "publisher": 2
+    }
 },
 {
+    "model": "catalog.author",
+    "pk": 1,
     "fields": {
         "name": "Eugene"
-    },
-    "model": "catalog.author",
-    "pk": 1
+    }
 },
 {
+    "model": "catalog.author",
+    "pk": 2,
     "fields": {
         "name": "George Raymond Richard Martin"
-    },
-    "model": "catalog.author",
-    "pk": 2
+    }
 },
 {
+    "model": "catalog.author",
+    "pk": 3,
     "fields": {
         "name": "David Vandevoorde"
-    },
-    "model": "catalog.author",
-    "pk": 3
+    }
 },
 {
+    "model": "catalog.author",
+    "pk": 4,
     "fields": {
         "name": "Nicolai M. Josuttis"
-    },
-    "model": "catalog.author",
-    "pk": 4
+    }
 },
 {
+    "model": "catalog.author",
+    "pk": 5,
     "fields": {
         "name": "Steve Krug"
-    },
-    "model": "catalog.author",
-    "pk": 5
+    }
 },
 {
+    "model": "catalog.publisher",
+    "pk": 2,
     "fields": {
         "name": "Bantam"
-    },
-    "model": "catalog.publisher",
-    "pk": 2
+    }
 },
 {
+    "model": "catalog.publisher",
+    "pk": 3,
     "fields": {
         "name": "Addison-Wesley Professional"
-    },
-    "model": "catalog.publisher",
-    "pk": 3
+    }
 },
 {
+    "model": "catalog.publisher",
+    "pk": 4,
     "fields": {
         "name": "New Riders"
-    },
-    "model": "catalog.publisher",
-    "pk": 4
+    }
 },
 {
+    "model": "ownership.book",
+    "pk": 1,
     "fields": {
         "owner": 3,
         "book_profile": 4
-    },
-    "model": "ownership.book",
-    "pk": 1
+    }
 },
 {
+    "model": "ownership.book",
+    "pk": 2,
     "fields": {
         "owner": 3,
         "book_profile": 6
-    },
-    "model": "ownership.book",
-    "pk": 2
+    }
 },
 {
+    "model": "ownership.book",
+    "pk": 3,
     "fields": {
         "owner": 4,
         "book_profile": 7
-    },
-    "model": "ownership.book",
-    "pk": 3
+    }
 },
 {
+    "model": "ownership.book",
+    "pk": 6,
     "fields": {
         "owner": 5,
         "book_profile": 4
-    },
-    "model": "ownership.book",
-    "pk": 6
+    }
 },
 {
+    "model": "ownership.book",
+    "pk": 7,
     "fields": {
         "owner": 4,
         "book_profile": 6
-    },
-    "model": "ownership.book",
-    "pk": 7
+    }
 }
 ]
