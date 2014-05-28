@@ -2,12 +2,13 @@ import urllib.request
 import json
 
 
+HTTP_PROTOCOL = 'https://'
 SERVER_URL = "www.googleapis.com"
 RESOURCE_URL = "/books/v1/volumes"
 
 class BookService(object):
     def search(query):
-        response = urllib.request.urlopen(request)
+        response = urllib.request.urlopen(HTTP_PROTOCOL + SERVER_URL+RESOURCE_URL+"?q={}".format(query))
         content = response.read().decode('utf8')
         return json.loads(content)
 

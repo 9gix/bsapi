@@ -1,4 +1,5 @@
+from catalog.providers import gbs
 
 def search(query):
-    #TODO: create the search function which return list of Book Object
-    return {}
+    book_list = gbs.BookService.search(query)
+    return book_list
