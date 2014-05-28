@@ -44,8 +44,7 @@ INSTALLED_APPS = (
     #'debug_toolbar',
     'django_extensions',
     'corsheaders',
-    'provider',
-    'provider.oauth2',
+    'oauth2_provider',
     'rest_framework',
     'haystack',
 
@@ -116,7 +115,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.OAuth2Authentication',
+        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',

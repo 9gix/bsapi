@@ -6,8 +6,6 @@ from django.db.models.signals import post_save
 from autoslug import AutoSlugField
 import pyisbn
 
-from catalog.isbn import checkI10, checkI13
-
 def isbn_validator(isbn):
     try:
         pyisbn.validate(isbn)

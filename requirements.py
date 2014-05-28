@@ -1,5 +1,5 @@
 # django>=1.7,<1.8
--e git+git@github.com:django/django.git@1.7b4#egg=django
+-e git+git@github.com:django/django.git@stable/1.7.x#egg=django
 
 pillow>=2.4.0,<2.5
 
@@ -10,8 +10,7 @@ pyisbn>=1.0.0,<1.1.0
 # djangorestframework>=2.3.12,<2.4.0
 -e git+git@github.com:9gix/django-rest-framework.git@master#egg=djangorestframework
 
-# django-oauth2-provider>=0.2.6,<0.3
--e git+git@github.com:9gix/django-oauth2-provider.git@master#egg=django-oauth2-provider
+django-oauth-toolkit>=0.7.1,<0.8
 
 django-cors-headers>=0.12,<0.13
 
