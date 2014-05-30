@@ -185,3 +185,16 @@ HAYSTACK_CONNECTIONS = {
         'INDEX_NAME': 'bookshare',
     },
 }
+
+# Shell Plus
+SHELL_PLUS = "ipython"
+
+SHELL_PLUS_PRE_IMPORTS = (
+)
+
+SHELL_PLUS_POST_IMPORTS = (
+    ('catalog.serializers', '*'),
+    ('catalog.views', '*'),
+    ('pprint','pprint'),
+)
+
