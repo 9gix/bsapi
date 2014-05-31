@@ -70,6 +70,8 @@ class BookProfile(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=255, blank=True)
 
+    description = models.TextField(blank=True)
+
     thumbnail = models.ImageField(blank=True)
 
     publisher = models.ForeignKey('catalog.Publisher', null=True, blank=True)
