@@ -29,8 +29,8 @@ resource_urlpatterns = router.urls
 # API customs views URL
 custom_api_urlpatterns = patterns('',
 
-    url(r'^search',
-        'catalog.views.search', name='search'),
+    url(r'^search/gbs/', 'catalog.views.gbs', name='search-gbs'),
+    url(r'^search/', 'catalog.views.search', name='search'),
 
 )
 
@@ -53,8 +53,10 @@ app_urlpatterns = patterns('',
 
 )
 
-# URL for static serving on dev environments
-static_urlpatterns = staticfiles_urlpatterns()
+urlpatterns = api_urlpatterns + app_urlpatterns
 
 
-urlpatterns = api_urlpatterns + app_urlpatterns + static_urlpatterns
+########################################
+# Local Development URL Configurations #
+########################################
+urlpatterns += staticfiles_urlpatterns()

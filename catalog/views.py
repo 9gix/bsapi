@@ -1,8 +1,11 @@
 from datetime import datetime
 
+from haystack.inputs import Clean
+from haystack.query import SearchQuerySet
 from rest_framework import viewsets
 from rest_framework import views
 from rest_framework import response
+from rest_framework import generics
 
 from catalog.models import (
         BookProfile, Publisher, Category, Author)
@@ -82,4 +85,19 @@ class SearchBook(views.APIView):
         return response.Response(serializer.data)
 
 
-search = SearchBook.as_view()
+gbs = SearchBook.as_view()
+
+class RestSearchBook(generics.ListAPIView):
+    model = BookProfile
+    def get_queryset(self, *args, **kwargs):
+        results = SearchQuerySet().filter(content=Clean(self.request.QUERY_PARAMS.get('q','')))
+
+        # Open Bug: https://github.com/toastdriven/django-haystack/issues/985
+        # isbn_list = results.values_list('isbn13', flat=True)
+        # Patch to the issue 985
+        isbn_list = [book.isbn13 for book in results]
+
+        return self.model.objects.filter(isbn13__in=isbn_list)
+
+
+search = RestSearchBook.as_view()

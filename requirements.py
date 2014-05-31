@@ -38,6 +38,7 @@ elasticsearch>=1.0.0,<1.1
 
 pyelasticsearch>=0.6.1,<0.7
 
-django-haystack>=2.1.0,<2.2
+#django-haystack>=2.1.0,<2.2
+-e git+git@github.com:toastdriven/django-haystack.git@master#egg=django-haystack
 
 python-dateutil>=2.2,<2.3

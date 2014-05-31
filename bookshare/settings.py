@@ -41,8 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    #'debug_toolbar', # for django<=1.6
-    'debug_toolbar.apps.DebugToolbarConfig', # for django>=1.7
+    #'debug_toolbar.apps.DebugToolbarConfig', # for django>=1.7
     'django_extensions',
     'corsheaders',
     'oauth2_provider',
@@ -169,10 +168,13 @@ CORS_ORIGIN_WHITELIST = (
 # Search API
 HAYSTACK_CONNECTIONS = {
     'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+    'advanced': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
         'URL': 'http://127.0.0.1:9200/',
         'INDEX_NAME': 'bookshare',
-    },
+    }
 }
 
 # Shell Plus
