@@ -11,7 +11,7 @@ def isbn_validator(isbn):
     try:
         pyisbn.validate(isbn)
     except pyisbn.IsbnError as err:
-        raise ValidationError(err.message)
+        raise ValidationError(err)
 
 class Author(models.Model):
     name = models.CharField(max_length=45, help_text="Full Name")
@@ -72,11 +72,11 @@ class BookProfile(models.Model):
 
     thumbnail = models.ImageField(blank=True)
 
-    publisher = models.ForeignKey('catalog.Publisher')
+    publisher = models.ForeignKey('catalog.Publisher', null=True, blank=True)
     authors = models.ManyToManyField('catalog.Author')
     categories = models.ManyToManyField('catalog.Category')
 
-    published_on = models.DateField()
+    published_on = models.DateField(null=True, blank=True)
 
     owners = models.ManyToManyField('auth.User', through='ownership.Book', 
             related_name='bookprofiles')
