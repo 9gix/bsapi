@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    #'debug_toolbar',
+    #'debug_toolbar', # for django<=1.6
+    'debug_toolbar.apps.DebugToolbarConfig', # for django>=1.7
     'django_extensions',
     'corsheaders',
     'oauth2_provider',
@@ -141,20 +142,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 # Debug Toolbar
-DEBUG_TOOLBAR_PANELS = [
-    'debug_toolbar.panels.versions.VersionsPanel',
-    'debug_toolbar.panels.timer.TimerPanel',
-    'debug_toolbar.panels.settings.SettingsPanel',
-    'debug_toolbar.panels.headers.HeadersPanel',
-    #'debug_toolbar.panels.request.RequestPanel',
-    #'debug_toolbar.panels.sql.SQLPanel',
-    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
-    'debug_toolbar.panels.templates.TemplatesPanel',
-    'debug_toolbar.panels.cache.CachePanel',
-    #'debug_toolbar.panels.signals.SignalsPanel',
-    'debug_toolbar.panels.logging.LoggingPanel',
-    'debug_toolbar.panels.redirects.RedirectsPanel',
-]
+INTERNAL_IPS = ('127.0.0.1')
+
 
 # Authentication (django.contrib.auth, accounts, or similar apps)
 LOGIN_REDIRECT_URL = '/'
@@ -196,5 +185,5 @@ SHELL_PLUS_POST_IMPORTS = (
     ('catalog.serializers', '*'),
     ('catalog.views', '*'),
     ('pprint','pprint'),
+    ('urllib', 'request'),
 )
-
