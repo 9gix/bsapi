@@ -19,7 +19,7 @@ class BookProfileViewSet(viewsets.ModelViewSet):
 
 
 
-class SearchBook(views.APIView):
+class BookProviderView(views.APIView):
     model = BookProfile
 
     def get(self, request, format=None):
@@ -85,10 +85,11 @@ class SearchBook(views.APIView):
         return response.Response(serializer.data)
 
 
-gbs = SearchBook.as_view()
+book_provider = BookProviderView.as_view()
 
-class RestSearchBook(generics.ListAPIView):
+class SearchView(generics.ListAPIView):
     model = BookProfile
+    serializer_class = BookProfileSerializer
     def get_queryset(self, *args, **kwargs):
         results = SearchQuerySet().filter(content=Clean(self.request.QUERY_PARAMS.get('q','')))
 
@@ -100,4 +101,4 @@ class RestSearchBook(generics.ListAPIView):
         return self.model.objects.filter(isbn13__in=isbn_list)
 
 
-search = RestSearchBook.as_view()
+search = SearchView.as_view()

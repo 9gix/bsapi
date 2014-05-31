@@ -29,7 +29,10 @@ resource_urlpatterns = router.urls
 # API customs views URL
 custom_api_urlpatterns = patterns('',
 
-    url(r'^search/gbs/', 'catalog.views.gbs', name='search-gbs'),
+    # Search for Book from Google Book Service.
+    url(r'^search/provider/', 'catalog.views.book_provider', name='search-provider'),
+
+    # Search for Book from Book Share System
     url(r'^search/', 'catalog.views.search', name='search'),
 
 )
