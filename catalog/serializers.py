@@ -4,9 +4,10 @@ from catalog.models import BookProfile
 
 
 class BookProfileSerializer(serializers.ModelSerializer):
-    authors = serializers.RelatedField(many=True)
-    publisher = serializers.RelatedField()
     url = serializers.HyperlinkedIdentityField(view_name="bookprofile-detail")
 
     class Meta:
         model = BookProfile
+
+    def get_identity(self, data):
+        return data.get('isbn13')

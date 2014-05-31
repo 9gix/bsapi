@@ -1,8 +1,11 @@
+from datetime import datetime
+
 from rest_framework import viewsets
 from rest_framework import views
 from rest_framework import response
 
-from catalog.models import BookProfile
+from catalog.models import (
+        BookProfile, Publisher, Category, Author)
 from catalog.serializers import BookProfileSerializer
 from catalog import providers
 
@@ -21,13 +24,61 @@ class SearchBook(views.APIView):
 
         result_list = []
 
-        book_list = providers.search(query)
+        raw_data = providers.search(query)
+        book_list = []
+        for item in raw_data.get('items'):
+            book_data = {}
+            for k, v in item.get('volumeInfo').items():
+                book_data[k] = v
 
-        for book in book_list:
-            result_list.append(BookProfile.objects.update_or_create(
-                isbn13=book.isbn13,defaults=book.to_dict()))
+            # Publisher
+            publisher = book_data.get('publisher')
+            if publisher:
+                publisher, created = Publisher.objects.get_or_create(
+                        name=book_data['publisher'])
+                book_data['publisher'] = publisher.id
 
-        serializer = BookProfileSerializer(result_list, many=True)
+            # ISBN
+            id_type_map = {
+                    'ISBN_13': 'isbn13',
+                    'ISBN_10': 'isbn10'
+            }
+            for identifier in book_data.get('industryIdentifiers', []):
+                id_type = id_type_map.get(identifier.get('type'))
+                book_data.update({id_type: identifier['identifier']})
+
+            # Author
+            authors = []
+            for auth in book_data.get('authors',[]):
+                author, created = Author.objects.get_or_create(name=auth)
+                authors.append(author.id)
+            book_data['authors'] = authors
+
+            # Category
+            categories = []
+            for cat in book_data.get('categories',[]):
+                category, created = Category.objects.get_or_create(name=cat)
+                categories.append(category.id)
+            book_data['categories'] = categories
+
+            pubdate = book_data.get('publishedDate', '')
+            try:
+                clean_date = datetime.strptime(pubdate, "%Y-%m-%d")
+            except ValueError as e:
+                pass # ignore published date
+            else:
+                book_data['published_on'] = pubdate
+
+            if book_data.get('isbn13'):
+                book_list.append(book_data)
+
+        isbn13_list = [book.get('isbn13') for book in book_list]
+        book_list = [book for book in book_list if book.get('isbn13')]
+        queryset = BookProfile.objects.select_related('publisher').prefetch_related(
+                'categories', 'authors', 'book_set').filter(isbn13__in=isbn13_list)
+        serializer = BookProfileSerializer(queryset, data=book_list, many=True, allow_add_remove=True)
+        if serializer.is_valid():
+            serializer.save()
         return response.Response(serializer.data)
 
 
