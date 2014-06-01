@@ -75,8 +75,8 @@ class BookProviderView(views.APIView):
             if book_data.get('isbn13'):
                 book_list.append(book_data)
 
-        isbn13_list = [book.get('isbn13') for book in book_list]
-        book_list = [book for book in book_list if book.get('isbn13')]
+        book_list = [book for book in book_list if 'isbn13' in book]
+        isbn13_list = [book['isbn13'] for book in book_list]
         queryset = BookProfile.objects.select_related('publisher').prefetch_related(
                 'categories', 'authors', 'book_set').filter(isbn13__in=isbn13_list)
         serializer = BookProfileSerializer(queryset, data=book_list, many=True, allow_add_remove=True)
