@@ -9,18 +9,18 @@ Prerequisite (General)
 
 You Don't Say?
 
-# `Setup Python 3`__
-# `Setup Git`_
-# `Setup VirtualEnv`_
-# `Setup VirtualEnvWrapper`_
-# `Setup Sqlite3`_
+#. `Setup Python 3`_
+#. `Setup Git`_
+#. `Setup VirtualEnv`_
+#. `Setup VirtualEnvWrapper`_
+#. `Setup Sqlite3`_
 
 Prerequisite (For Server)
 ----------------------
 
-# `Setup Redis`_
-# `Setup PostgreSQL`_
-# `Setup ElasticSearch`_
+#. `Setup Redis`_
+#. `Setup PostgreSQL`_
+#. `Setup ElasticSearch`_
 
 
 Installation
