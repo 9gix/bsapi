@@ -33,6 +33,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    ###################
+    # PRE INSTALL APP #
+    ###################
+
+
+    ######################
+    # Django Contrib App #
+    ######################
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,13 +49,20 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    ###################
+    # Third Party App #
+    ###################
+    'corsheaders',
     #'debug_toolbar.apps.DebugToolbarConfig', # for django>=1.7
     'django_extensions',
-    'corsheaders',
+    'haystack',
     'oauth2_provider',
     'rest_framework',
-    'haystack',
+    'social.apps.django_app.default',
 
+    ################
+    # Internal App #
+    ################
     'accounts',
     'catalog',
     'comm',
@@ -55,6 +70,12 @@ INSTALLED_APPS = (
     'ownership',
     'reservations',
     'reviews',
+
+    ####################
+    # POST INSTALL APP #
+    ####################
+
+
 )
 
 MIDDLEWARE_CLASSES = (
