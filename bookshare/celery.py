@@ -5,7 +5,7 @@ import os
 from celery import Celery
 from django.conf import settings
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bookshare.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bookshare.settings.dev')
 app = Celery('bookshare')
 
 app.config_from_object('django.conf:settings')
