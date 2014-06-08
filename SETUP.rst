@@ -41,7 +41,6 @@ Installation
     pip install -r requirements.txt
 
     # Create Database
-    python manage.py syncdb
     python manage.py migrate
 
     # Run Test
@@ -50,6 +49,8 @@ Installation
     # Runserver
     python manage.py runserver
 
+    # For Test Data on your local machine
+    python manage.py loaddata fixtures/dump_data.json
 
 
 .. _Setup Python 3: https://wiki.python.org/moin/BeginnersGuide/Download
