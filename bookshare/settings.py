@@ -68,7 +68,6 @@ INSTALLED_APPS = (
     'comm',
     'communities',
     'ownership',
-    'reservations',
     'reviews',
 
     ####################
