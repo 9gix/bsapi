@@ -60,6 +60,9 @@ Installation for Server
     # Install package dependencies
     pip install -r requirements.txt
 
+    # Run Server
+    gunicorn bookshare.wsgi:application
+
 
 .. _Setup Python 3: https://wiki.python.org/moin/BeginnersGuide/Download
 .. _Setup Git: http://virtualenvwrapper.readthedocs.org/en/latest/install.html
