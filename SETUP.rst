@@ -23,8 +23,8 @@ Prerequisite (For Server)
 #. `Setup ElasticSearch`_
 
 
-Installation
-------------
+Installation for Developer
+--------------------------
 
 .. code-block:: sh
 
@@ -38,7 +38,7 @@ Installation
     cd bsapi
 
     # Install package dependencies
-    pip install -r requirements.txt
+    pip install -r requirements/dev.txt
 
     # Create Database
     python manage.py migrate
@@ -51,6 +51,14 @@ Installation
 
     # For Test Data on your local machine
     python manage.py loaddata fixtures/dump_data.json
+
+Installation for Server
+-----------------------
+
+.. code-block:: sh
+
+    # Install package dependencies
+    pip install -r requirements.txt
 
 
 .. _Setup Python 3: https://wiki.python.org/moin/BeginnersGuide/Download

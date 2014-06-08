@@ -1,0 +1,5 @@
+-r base.txt
+
+psycopg2>=2.5.3,<2.6
+
+gunicorn>=18.0,<19
