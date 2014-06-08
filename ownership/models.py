@@ -7,8 +7,9 @@ class Book(models.Model):
     book_profile = models.ForeignKey('catalog.BookProfile')
     owner = models.ForeignKey('auth.User')
 
-    class Meta:
-        unique_together = ('book_profile', 'owner')
+    # NOT SUPPORTED BY SQLITE3
+    #class Meta:
+    #    unique_together = ('book_profile', 'owner')
 
     def __str__(self):
         return "%s (owner: %s)" % (self.book_profile, self.owner)

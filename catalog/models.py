@@ -80,7 +80,7 @@ class BookProfile(models.Model):
 
     published_on = models.DateField(null=True, blank=True)
 
-    owners = models.ManyToManyField('auth.User', through='ownership.Book', 
+    owners = models.ManyToManyField('auth.User', through='ownership.Book',
             related_name='bookprofiles')
 
     def __str__(self):
