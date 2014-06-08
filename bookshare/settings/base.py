@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 # The directory for assets which are served to users.
 PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
@@ -91,16 +91,6 @@ ROOT_URLCONF = 'bookshare.urls'
 WSGI_APPLICATION = 'bookshare.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
@@ -158,9 +148,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "bookshare.context_processors.site",
 
 )
-
-# Debug Toolbar
-INTERNAL_IPS = ('127.0.0.1')
 
 
 # Authentication (django.contrib.auth, accounts, or similar apps)
