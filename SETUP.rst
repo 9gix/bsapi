@@ -29,7 +29,7 @@ Installation for Developer
 .. code-block:: sh
 
     # project virtual environment
-    mkvirtualenv bsapi -p python3
+    mkvirtualenv bsapi -p <path-to-python3-executable>
     workon bsapi
 
     # Clone project
