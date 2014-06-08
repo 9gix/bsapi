@@ -1,11 +1,16 @@
 from django.db import models
+from django.conf import settings
 
 class Book(models.Model):
     """This model contains the information about the book owned by the owner
     such as book condition, etc.
     """
     book_profile = models.ForeignKey('catalog.BookProfile')
-    owner = models.ForeignKey('auth.User')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL,
+            related_name='book_set')
+
+    current_holder = models.ForeignKey(settings.AUTH_USER_MODEL,
+            related_name='borrowed_books')
 
     # NOT SUPPORTED BY SQLITE3
     #class Meta:

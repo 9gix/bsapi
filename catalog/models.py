@@ -1,5 +1,6 @@
 from functools import reduce
 from django.db import models
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator
 from django.db.models.signals import post_save
@@ -80,7 +81,8 @@ class BookProfile(models.Model):
 
     published_on = models.DateField(null=True, blank=True)
 
-    owners = models.ManyToManyField('auth.User', through='ownership.Book',
+    owners = models.ManyToManyField(settings.AUTH_USER_MODEL,
+            through='ownership.Book', through_fields=('book_profile', 'owner'),
             related_name='bookprofiles')
 
     def __str__(self):
