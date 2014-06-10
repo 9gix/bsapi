@@ -63,6 +63,17 @@ Installation for Server
     # Run Server
     gunicorn bookshare.wsgi:application
 
+Installation for Server (Ubuntu)
+--------------------------------
+
+.. code-block:: sh
+
+    apt install postgresql-server-dev-X.Y postgresql postgresql-contrib
+    apt install python3-dev
+    apt install supervisor # process monitor & control
+
+
+
 
 .. _Setup Python 3: https://wiki.python.org/moin/BeginnersGuide/Download
 .. _Setup Git: http://virtualenvwrapper.readthedocs.org/en/latest/install.html
