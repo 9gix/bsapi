@@ -151,6 +151,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 
 # Authentication (django.contrib.auth, accounts, or similar apps)
+LOGIN_URL = '/auth/login/'
 LOGIN_REDIRECT_URL = '/'
 
 # Site Framework
@@ -169,6 +170,7 @@ CELERY_RESULT_BACKEND = 'amqp://'
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:9000',
+    'localhost:9000',
 )
 
 # Search API
