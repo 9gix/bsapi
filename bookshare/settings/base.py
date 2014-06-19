@@ -59,7 +59,7 @@ INSTALLED_APPS = (
     'oauth2_provider',
     'rest_framework',
     'social.apps.django_app.default',
-	'rest_framework',
+
 
     ################
     # Internal App #
@@ -131,7 +131,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ),
-	'PAGINATE_BY': 20
+    'PAGINATE_BY': 20
 }
 
 # HTML Templates
