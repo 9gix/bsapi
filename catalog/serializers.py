@@ -4,7 +4,9 @@ from catalog.models import BookProfile
 
 
 class BookProfileSerializer(serializers.ModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name="bookprofile-detail")
+    url = serializers.HyperlinkedIdentityField(
+            view_name="bookprofile-detail",
+            lookup_field='isbn13')
     authors = serializers.RelatedField(many=True)
     publisher = serializers.RelatedField()
     categories = serializers.RelatedField(many=True)

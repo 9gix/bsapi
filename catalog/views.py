@@ -16,7 +16,7 @@ from catalog import providers
 class BookProfileViewSet(viewsets.ModelViewSet):
     model = BookProfile
     serializer_class = BookProfileSerializer
-
+    lookup_field = 'isbn13'
 
 
 class BookProviderView(views.APIView):
