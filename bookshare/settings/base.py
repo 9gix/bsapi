@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'social.apps.django_app.default',
 
+
     ################
     # Internal App #
     ################
@@ -75,6 +76,7 @@ INSTALLED_APPS = (
 
 
 )
+
 
 MIDDLEWARE_CLASSES = (
     'corsheaders.middleware.CorsMiddleware',
@@ -128,7 +130,8 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-    )
+    ),
+    'PAGINATE_BY': 20
 }
 
 # HTML Templates
