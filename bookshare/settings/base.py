@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'haystack',
     'oauth2_provider',
     'rest_framework',
+    'rest_framework.authtoken',
     'social.apps.django_app.default',
 
     ################
@@ -122,8 +123,8 @@ MEDIA_URL = '/media/'
 # Django Rest Framework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         'oauth2_provider.ext.rest_framework.OAuth2Authentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
@@ -154,6 +155,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 LOGIN_URL = '/auth/login/'
 LOGIN_REDIRECT_URL = '/'
 
+AUTHENTICATION_BACKENDS = (
+
+    'django.contrib.auth.backends.ModelBackend',
+
+)
+
 # Site Framework
 SITE_ID = 1
 
@@ -172,6 +179,8 @@ CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:9000',
     'localhost:9000',
 )
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_DOMAIN = ''
 
 # Search API
 HAYSTACK_CONNECTIONS = {

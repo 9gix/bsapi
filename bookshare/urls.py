@@ -54,6 +54,10 @@ app_urlpatterns = patterns('',
     url(r'^auth/',
         include('rest_framework.urls', namespace='rest_framework')),
 
+    url(r'^token-auth/', 'rest_framework.authtoken.views.obtain_auth_token'),
+
+    url('', include('social.apps.django_app.urls', namespace='social')),
+
 )
 
 urlpatterns = api_urlpatterns + app_urlpatterns
