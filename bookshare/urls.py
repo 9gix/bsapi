@@ -28,9 +28,15 @@ resource_urlpatterns = router.urls
 
 # API customs views URL
 custom_api_urlpatterns = patterns('',
+    url(r'^$', 'bookshare.views.api_root',
+        name='api-root'),
+
+    url(r'^register/', 'accounts.views.user_registration',
+        name='user-registration'),
 
     # Search for Book from Google Book Service.
-    url(r'^search/provider/', 'catalog.views.book_provider', name='search-provider'),
+    url(r'^search/provider/', 'catalog.views.book_provider',
+        name='search-provider'),
 
     # Search for Book from Book Share System
     url(r'^search/', 'catalog.views.search', name='search'),
@@ -39,7 +45,7 @@ custom_api_urlpatterns = patterns('',
 
 
 # URL for REST API
-api_urlpatterns = resource_urlpatterns + custom_api_urlpatterns
+api_urlpatterns = custom_api_urlpatterns + resource_urlpatterns
 
 
 # URL for specific Django Apps

@@ -9,6 +9,13 @@ from rest_framework.permissions import AllowAny
 @permission_classes((AllowAny,))
 def api_root(request, format=None):
     return Response({
-        'Version 1': reverse('api:v1:api-root', request=request, format=format)
+        'registration': reverse('user-registration', request=request,
+            format=format),
+        'book-profile': reverse('bookprofile-list', request=request,
+            format=format),
+        'search-book-online': reverse('search-provider', request=request,
+            format=format),
+        'search-book-in-system': reverse('search', request=request,
+            format=format),
     })
 

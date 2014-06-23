@@ -33,7 +33,7 @@ class UserSerializer(serializers.ModelSerializer):
         if instance:
             user = instance
             # Update an existing user
-            for key, val in attrs.iteritems():
+            for key, val in attrs.items():
                 setattr(user, key, val)
         else:
             # Create a new user
