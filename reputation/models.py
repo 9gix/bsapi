@@ -6,13 +6,13 @@ from django.conf import settings
 ###this model contains the record of user's reputation
 
 class Reputation(models.Model):
-    record = models.IntegerField(default=10)
+    value = models.IntegerField(default=10)
 ### initial total reputation amount set to be 10
 
     def increase(self, amount=1):
-        record += amount
+        value += amount
 ###function to increase user's reputation, default set to be 1
 
     def decrease(self, amount=1):
-        record -= amount
+        value -= amount
 ###function to increase user's reputation, default set to be 1
