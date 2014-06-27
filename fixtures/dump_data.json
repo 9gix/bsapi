@@ -185,41 +185,46 @@
     }
 },
 {
-    "model": "ownership.user_book",
+    "model": "ownership.userbook",
     "pk": 1,
     "fields": {
+        "current_holder": 3,
         "owner": 3,
         "book": 4
     }
 },
 {
-    "model": "ownership.user_book",
+    "model": "ownership.userbook",
     "pk": 2,
     "fields": {
+        "current_holder": 3,
         "owner": 3,
         "book": 6
     }
 },
 {
-    "model": "ownership.user_book",
+    "model": "ownership.userbook",
     "pk": 3,
     "fields": {
+        "current_holder": 4,
         "owner": 4,
         "book": 7
     }
 },
 {
-    "model": "ownership.user_book",
+    "model": "ownership.userbook",
     "pk": 6,
     "fields": {
+        "current_holder": 5,
         "owner": 5,
         "book": 4
     }
 },
 {
-    "model": "ownership.user_book",
+    "model": "ownership.userbook",
     "pk": 7,
     "fields": {
+        "current_holder": 4,
         "owner": 4,
         "book": 6
     }
