@@ -57,7 +57,7 @@ class Category(models.Model):
         verbose_name_plural = 'categories'
 
 
-class BookProfile(models.Model):
+class Book(models.Model):
     """This model is a generic book attribute regardless of the owner
     such as isbn, title, author, version, publisher, etc. as needed 
     """
@@ -82,8 +82,8 @@ class BookProfile(models.Model):
     published_on = models.DateField(null=True, blank=True)
 
     owners = models.ManyToManyField(settings.AUTH_USER_MODEL,
-            through='ownership.Book', through_fields=('book_profile', 'owner'),
-            related_name='bookprofiles')
+            through='ownership.UserBook', through_fields=('book', 'owner'),
+            related_name='books')
 
     def __str__(self):
         return "{}, {}".format(self.title, self.isbn13)

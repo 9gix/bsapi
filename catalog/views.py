@@ -8,19 +8,19 @@ from rest_framework import response
 from rest_framework import generics
 
 from catalog.models import (
-        BookProfile, Publisher, Category, Author)
-from catalog.serializers import BookProfileSerializer
+        Book, Publisher, Category, Author)
+from catalog.serializers import BookSerializer
 from catalog import providers
 
 
-class BookProfileViewSet(viewsets.ModelViewSet):
-    model = BookProfile
-    serializer_class = BookProfileSerializer
+class BookViewSet(viewsets.ModelViewSet):
+    model = Book
+    serializer_class = BookSerializer
     lookup_field = 'isbn13'
 
 
 class BookProviderView(views.APIView):
-    model = BookProfile
+    model = Book
 
     def get(self, request, format=None):
         query = self.request.QUERY_PARAMS.get('q', None)
@@ -77,9 +77,9 @@ class BookProviderView(views.APIView):
 
         book_list = [book for book in book_list if 'isbn13' in book]
         isbn13_list = [book['isbn13'] for book in book_list]
-        queryset = BookProfile.objects.select_related('publisher').prefetch_related(
+        queryset = Book.objects.select_related('publisher').prefetch_related(
                 'categories', 'authors', 'book_set').filter(isbn13__in=isbn13_list)
-        serializer = BookProfileSerializer(queryset, data=book_list, many=True, allow_add_remove=True)
+        serializer = BookSerializer(queryset, data=book_list, many=True, allow_add_remove=True)
         if serializer.is_valid():
             serializer.save()
         return response.Response(serializer.data)
@@ -88,8 +88,8 @@ class BookProviderView(views.APIView):
 book_provider = BookProviderView.as_view()
 
 class SearchView(generics.ListAPIView):
-    model = BookProfile
-    serializer_class = BookProfileSerializer
+    model = Book
+    serializer_class = BookSerializer
     def get_queryset(self, *args, **kwargs):
         results = SearchQuerySet().filter(content=Clean(self.request.QUERY_PARAMS.get('q','')))
 
