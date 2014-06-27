@@ -80,7 +80,7 @@
     }
 },
 {
-    "model": "catalog.bookprofile",
+    "model": "catalog.book",
     "pk": 4,
     "fields": {
         "published_on": "2014-01-03",
@@ -96,7 +96,7 @@
     }
 },
 {
-    "model": "catalog.bookprofile",
+    "model": "catalog.book",
     "pk": 6,
     "fields": {
         "published_on": "2002-11-22",
@@ -113,7 +113,7 @@
     }
 },
 {
-    "model": "catalog.bookprofile",
+    "model": "catalog.book",
     "pk": 7,
     "fields": {
         "published_on": "2013-10-29",
@@ -185,43 +185,43 @@
     }
 },
 {
-    "model": "ownership.book",
+    "model": "ownership.user_book",
     "pk": 1,
     "fields": {
         "owner": 3,
-        "book_profile": 4
+        "book": 4
     }
 },
 {
-    "model": "ownership.book",
+    "model": "ownership.user_book",
     "pk": 2,
     "fields": {
         "owner": 3,
-        "book_profile": 6
+        "book": 6
     }
 },
 {
-    "model": "ownership.book",
+    "model": "ownership.user_book",
     "pk": 3,
     "fields": {
         "owner": 4,
-        "book_profile": 7
+        "book": 7
     }
 },
 {
-    "model": "ownership.book",
+    "model": "ownership.user_book",
     "pk": 6,
     "fields": {
         "owner": 5,
-        "book_profile": 4
+        "book": 4
     }
 },
 {
-    "model": "ownership.book",
+    "model": "ownership.user_book",
     "pk": 7,
     "fields": {
         "owner": 4,
-        "book_profile": 6
+        "book": 6
     }
 }
 ]

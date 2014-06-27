@@ -12,7 +12,7 @@ class Conversation(models.Model):
         (TRANSFERED, 'Book Transfered'),
     )
 
-    user_book = models.ForeignKey('ownership.Book')
+    user_book = models.ForeignKey('ownership.UserBook')
     borrower = models.ForeignKey('auth.User')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=INITIALIZED)
 

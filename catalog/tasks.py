@@ -2,6 +2,7 @@ from django.db.models import signals
 from celery import shared_task
 from catalog.book import query_book_info
 from catalog.models import Book, Publisher, Author, sync_book_data
+from ownership.models import UserBook
 from celery import chain
 from datetime import datetime
 
