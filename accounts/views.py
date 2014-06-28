@@ -25,6 +25,7 @@ class UserViewSet(viewsets.ModelViewSet):
             IsAdminOrIsSelf,
     )
     serializer_class = UserSerializer
+    lookup_field = 'username'
 
     def get_queryset(self):
         users = get_user_model().objects

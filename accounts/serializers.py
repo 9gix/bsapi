@@ -12,12 +12,15 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
 
+    url = serializers.HyperlinkedIdentityField(
+            view_name="user-detail",
+            lookup_field='username')
     books = serializers.RelatedField(many=True)
     communities = serializers.RelatedField(many=True)
 
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name', 'username', 'email',
+        fields = ('id', 'url', 'first_name', 'last_name', 'username', 'email',
                 'password', 'books', 'communities')
         write_only_fields = ('password',)
 
