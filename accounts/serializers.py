@@ -13,11 +13,12 @@ class UserProfileSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
 
     books = serializers.RelatedField(many=True)
+    communities = serializers.RelatedField(many=True)
 
     class Meta:
         model = User
         fields = ('id', 'first_name', 'last_name', 'username', 'email',
-                'password', 'books',)
+                'password', 'books', 'communities')
         write_only_fields = ('password',)
 
 

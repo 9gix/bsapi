@@ -5,7 +5,7 @@ class Community(models.Model):
     name = models.CharField(max_length=40, unique=True)
     logo = models.ImageField(upload_to='community-logo', blank=True)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL,
-            through='communities.Membership')
+            through='communities.Membership', related_name='communities')
 
     class Meta:
         verbose_name_plural = 'communities'

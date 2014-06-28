@@ -11,6 +11,10 @@ def api_root(request, format=None):
     return Response({
         'registration': reverse('user-registration', request=request,
             format=format),
+        'users': reverse('user-list', request=request,
+            format=format),
+        'communities': reverse('community-list', request=request,
+            format=format),
         'book': reverse('book-list', request=request,
             format=format),
         'search-book-online': reverse('search-provider', request=request,
