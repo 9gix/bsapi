@@ -7,6 +7,9 @@ class Community(models.Model):
     members = models.ManyToManyField(settings.AUTH_USER_MODEL,
             through='communities.Membership')
 
+    class Meta:
+        verbose_name_plural = 'communities'
+
     def __str__(self):
         return self.name
 
@@ -16,3 +19,5 @@ class Membership(models.Model):
 
     is_moderator = models.BooleanField(default=False)
 
+    def __str__(self):
+        return "{}: {}".format(self.community, self.user)
