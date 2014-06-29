@@ -19,10 +19,11 @@ class BookViewSet(viewsets.ModelViewSet):
     lookup_field = 'isbn13'
 
 
-class BookProviderView(views.APIView):
+class BookProviderView(generics.ListAPIView):
     model = Book
+    serializer_class = BookSerializer
 
-    def get(self, request, format=None):
+    def get_queryset(self):
         query = self.request.QUERY_PARAMS.get('q', None)
 
         result_list = []
@@ -77,12 +78,11 @@ class BookProviderView(views.APIView):
 
         book_list = [book for book in book_list if 'isbn13' in book]
         isbn13_list = [book['isbn13'] for book in book_list]
-        queryset = Book.objects.select_related('publisher').prefetch_related(
-                'categories', 'authors', 'book_set').filter(isbn13__in=isbn13_list)
+        queryset = Book.objects.select_related('publisher').filter(isbn13__in=isbn13_list)
         serializer = BookSerializer(queryset, data=book_list, many=True, allow_add_remove=True)
         if serializer.is_valid():
             serializer.save()
-        return response.Response(serializer.data)
+        return serializer.object
 
 
 book_provider = BookProviderView.as_view()
