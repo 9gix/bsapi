@@ -14,12 +14,27 @@ from catalog import providers
 
 
 class BookViewSet(viewsets.ModelViewSet):
+    """This endpoint will provide books information in our system.
+
+    To use this API you have to provide the `isbn13` into the url. 
+
+    - `/books/`
+    - `/books/9780062073488/`
+    - `/books/9781101161883/`
+    """
     model = Book
     serializer_class = BookSerializer
     lookup_field = 'isbn13'
 
 
 class BookProviderView(generics.ListAPIView):
+    """This endpoint will search the books from all of the providers.
+
+    To use this search API you have to provide the `q` query parameters
+
+    - `/search/provider/?q=cakephp`
+    - `/search/provider/?q=python`
+    """
     model = Book
     serializer_class = BookSerializer
 
@@ -88,6 +103,13 @@ class BookProviderView(generics.ListAPIView):
 book_provider = BookProviderView.as_view()
 
 class SearchView(generics.ListAPIView):
+    """This endpoint will search the books recorded in our system.
+
+    To use this search API you have to provide the `q` query parameters
+
+    - `/search/?q=cakephp`
+    - `/search/?q=python`
+    """
     model = Book
     serializer_class = BookSerializer
     def get_queryset(self, *args, **kwargs):
