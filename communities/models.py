@@ -13,7 +13,7 @@ class Community(models.Model):
 class Membership(models.Model):
     community = models.ForeignKey('communities.Community')
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
-	reputation = models.OneToOneField('reputation.Reputation')
+    reputation = models.OneToOneField('reputation.Reputation')
 
     is_moderator = models.BooleanField(default=False)
 
