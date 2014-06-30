@@ -12,3 +12,4 @@ from reputation.serializers import ReputationSerializer
 
 class ReputationViewSet(viewsets.ModelViewSet):
     model = Reputation
+    serializer_class = ReputationSerializer
