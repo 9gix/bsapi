@@ -70,6 +70,7 @@ INSTALLED_APPS = (
     'comm',
     'communities',
     'ownership',
+    'transaction',
 
     ####################
     # POST INSTALL APP #
