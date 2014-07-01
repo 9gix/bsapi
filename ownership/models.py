@@ -12,9 +12,6 @@ class UserBook(models.Model):
     current_holder = models.ForeignKey(settings.AUTH_USER_MODEL,
             related_name='borrowed_books')
 
-    # NOT SUPPORTED BY SQLITE3
-    #class Meta:
-    #    unique_together = ('book', 'owner')
 
     def __str__(self):
         return "%s (owner: %s)" % (self.book, self.owner)
