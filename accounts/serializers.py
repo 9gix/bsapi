@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from accounts.models import UserProfile
-from accounts.permissions import IsAdminOrIsSelf
+from accounts.permissions import IsAdminOrSelf
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
