@@ -13,7 +13,7 @@ from rest_framework.views import APIView
 
 
 from accounts.models import UserProfile
-from accounts.permissions import IsAdminOrIsSelf
+from accounts.permissions import IsAdminOrSelf
 from accounts.serializers import (
         UserSerializer, UserProfileSerializer
 )
@@ -21,10 +21,10 @@ from accounts.serializers import (
 class UserViewSet(viewsets.ModelViewSet):
     model = get_user_model()
     permission_classes = (
-            permissions.DjangoModelPermissionsOrAnonReadOnly,
-            IsAdminOrIsSelf,
+        IsAdminOrSelf,
     )
     serializer_class = UserSerializer
+    lookup_field = 'username'
 
     def get_queryset(self):
         users = get_user_model().objects

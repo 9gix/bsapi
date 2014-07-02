@@ -10,8 +10,8 @@ from accounts.views import (
 from comm.views import (
         ConversationViewSet, ConversationMessageViewSet
 )
-from ownership.views import BookViewSet
-from catalog.views import BookProfileViewSet
+from ownership.views import UserBookViewSet
+from catalog.views import BookViewSet
 from communities.views import CommunityViewSet
 from reputation.views import ReputationViewSet
 
@@ -22,8 +22,8 @@ router.register(r'users-profile', UserProfileViewSet)
 router.register(r'groups', GroupViewSet)
 router.register(r'conversations', ConversationViewSet)
 router.register(r'messages', ConversationMessageViewSet)
-router.register(r'books-profile', BookProfileViewSet)
 router.register(r'books', BookViewSet)
+router.register(r'user-books', UserBookViewSet)
 router.register(r'communities', CommunityViewSet)
 router.register(r'reputation', ReputationViewSet)
 resource_urlpatterns = router.urls

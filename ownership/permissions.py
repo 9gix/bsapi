@@ -1,16 +1,22 @@
 from rest_framework import permissions
 
 
-class IsOwnerOrReadOnly(permissions.BasePermission):
+class IsOwnerOrAdminElseReadOnly(permissions.BasePermission):
     """
-    Custom permission to only allow owners of an object to edit it.
+    Permission that allow only owner and admin to edit it
+    while others will only allowed to read.
     """
 
-    def has_object_permission(self, request, view, obj):
-        # Read permissions are allowed to any request,
-        # so we'll always allow GET, HEAD or OPTIONS requests.
-        if request.method in permissions.SAFE_METHODS:
-            return True
+    def has_object_permissions(self, request, view, obj):
+        """return true when any of the permission satisfied"""
 
-        # Write permissions are only allowed to the owner of the snippet.
-        return obj.owner == request.user
+        return (
+            # allow any read-only request (e.g. GET, HEAD & OPTIONS)
+            (request.method in permissions.SAFE_METHODS) or
+
+            # allow Owner to make read-write request
+            (request.user == obj.owner) or
+
+            # allow Admin to make read-write request
+            (request.user.is_staff)
+        )

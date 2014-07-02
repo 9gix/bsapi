@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from accounts.models import UserProfile
-from accounts.permissions import IsAdminOrIsSelf
+from accounts.permissions import IsAdminOrSelf
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -12,11 +12,16 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
 
-    bookprofiles = serializers.RelatedField(many=True)
+    url = serializers.HyperlinkedIdentityField(
+            view_name="user-detail",
+            lookup_field='username')
+    books = serializers.RelatedField(many=True)
+    communities = serializers.RelatedField(many=True)
 
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password','bookprofiles',)
+        fields = ('id', 'url', 'first_name', 'last_name', 'username', 'email',
+                'password', 'books', 'communities')
         write_only_fields = ('password',)
 
 

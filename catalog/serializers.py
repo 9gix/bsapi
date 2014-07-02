@@ -1,18 +1,19 @@
 from rest_framework import serializers
 
-from catalog.models import BookProfile
+from catalog.models import Book
 
 
-class BookProfileSerializer(serializers.ModelSerializer):
+class BookSerializer(serializers.ModelSerializer):
     url = serializers.HyperlinkedIdentityField(
-            view_name="bookprofile-detail",
+            view_name="book-detail",
             lookup_field='isbn13')
-    authors = serializers.RelatedField(many=True)
-    publisher = serializers.RelatedField()
-    categories = serializers.RelatedField(many=True)
+    authors = serializers.SlugRelatedField(many=True, slug_field='name')
+    publisher = serializers.SlugRelatedField(slug_field='name')
+    categories = serializers.SlugRelatedField(many=True, slug_field='name')
+    owners = serializers.SlugRelatedField(many=True, slug_field='username')
 
     class Meta:
-        model = BookProfile
+        model = Book
 
     def get_identity(self, data):
         return data.get('isbn13')
