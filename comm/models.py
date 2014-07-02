@@ -1,20 +1,25 @@
 from django.db import models
+from enum import Enum
+
+class ReservationStatus(Enum):
+    PENDING = 0
+    ACCEPTED = 1
+    REJECTED = -1
 
 
 class Conversation(models.Model):
-    INITIALIZED = 'init'
-    RESERVED = 'reserved'
-    TRANSFERED = 'transfered'
-
     STATUS_CHOICES = (
-        (INITIALIZED, 'Conversation Started'),
-        (RESERVED, 'Book Reserved'),
-        (TRANSFERED, 'Book Transfered'),
+        (ReservationStatus.PENDING, 'Waiting for approval'),
+        (ReservationStatus.ACCEPTED, 'Request approved'),
+        (ReservationStatus.REJECTED, 'Request unsuccessful'),
     )
 
     user_book = models.ForeignKey('ownership.UserBook')
     borrower = models.ForeignKey('auth.User')
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=INITIALIZED)
+
+    reservation_status = models.SmallIntegerField(
+            choices=STATUS_CHOICES,
+            default=ReservationStatus.PENDING)
 
 class ConversationMessage(models.Model):
     conversation = models.ForeignKey(Conversation)
