@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from reputation.models import Reputation
+
+admin.site.register(Reputation)
