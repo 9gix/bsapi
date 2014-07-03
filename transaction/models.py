@@ -13,10 +13,17 @@ class Transaction(models.Model):
     )
     book_return = models.CharField(max_length = 2, choices = BOOK_RETURN_CHOICES, default = 'UN')
 
-def create_transaction():
+    def create_transaction(self):
     #this function should involve the transaction of credit, lender increase reputation
-    ownership.UserBOok.current_holder = borrower
+        self.book.current_holder = borrower
+        self.book.owner.reputation.increase()
+        
 
-def terminate_transaction():
-    #lender should be able to edit the status of book_return
-    #if status change to lost, borrower reduces reputation, edit UserBook.current_holder
+    def terminate_transaction(self):
+
+        #lender edit the status of book_return
+        if self.book_return == 'RE':
+            self.book.current_holder = lender
+        elif self.book_return == 'LO':
+            #user should remove the page of book: self.book.delete()
+            self.borrower.reputation.decrease()#since reputation is not merged, this one may show error
