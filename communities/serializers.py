@@ -9,7 +9,9 @@ class CommunitySerializer(serializers.ModelSerializer):
         model = Community
 
 class MembershipSerializer(serializers.ModelSerializer):
+    reputation = serializers.SlugRelatedField(
+            slug_field='value', read_only=True)
 
     class Meta:
         model = Membership
-        fields = ('community', 'user', 'is_moderator')
+        fields = ('community', 'user', 'reputation', 'is_moderator')
