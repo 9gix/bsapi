@@ -14,15 +14,31 @@ from catalog import providers
 
 
 class BookViewSet(viewsets.ModelViewSet):
+    """This endpoint will provide books information in our system.
+
+    To use this API you have to provide the `isbn13` into the url. 
+
+    - `/books/`
+    - `/books/9780062073488/`
+    - `/books/9781101161883/`
+    """
     model = Book
     serializer_class = BookSerializer
     lookup_field = 'isbn13'
 
 
-class BookProviderView(views.APIView):
-    model = Book
+class BookProviderView(generics.ListAPIView):
+    """This endpoint will search the books from all of the providers.
 
-    def get(self, request, format=None):
+    To use this search API you have to provide the `q` query parameters
+
+    - `/search/provider/?q=cakephp`
+    - `/search/provider/?q=python`
+    """
+    model = Book
+    serializer_class = BookSerializer
+
+    def get_queryset(self):
         query = self.request.QUERY_PARAMS.get('q', None)
 
         result_list = []
@@ -77,17 +93,23 @@ class BookProviderView(views.APIView):
 
         book_list = [book for book in book_list if 'isbn13' in book]
         isbn13_list = [book['isbn13'] for book in book_list]
-        queryset = Book.objects.select_related('publisher').prefetch_related(
-                'categories', 'authors', 'book_set').filter(isbn13__in=isbn13_list)
+        queryset = Book.objects.select_related('publisher').filter(isbn13__in=isbn13_list)
         serializer = BookSerializer(queryset, data=book_list, many=True, allow_add_remove=True)
         if serializer.is_valid():
             serializer.save()
-        return response.Response(serializer.data)
+        return serializer.object
 
 
 book_provider = BookProviderView.as_view()
 
 class SearchView(generics.ListAPIView):
+    """This endpoint will search the books recorded in our system.
+
+    To use this search API you have to provide the `q` query parameters
+
+    - `/search/?q=cakephp`
+    - `/search/?q=python`
+    """
     model = Book
     serializer_class = BookSerializer
     def get_queryset(self, *args, **kwargs):
