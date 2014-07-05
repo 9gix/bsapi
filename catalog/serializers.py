@@ -10,7 +10,7 @@ class BookSerializer(serializers.ModelSerializer):
     authors = serializers.SlugRelatedField(many=True, slug_field='name')
     publisher = serializers.SlugRelatedField(slug_field='name')
     categories = serializers.SlugRelatedField(many=True, slug_field='name')
-    owners = serializers.SlugRelatedField(many=True, slug_field='username')
+    owners = serializers.RelatedField(many=True)
 
     class Meta:
         model = Book

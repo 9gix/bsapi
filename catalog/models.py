@@ -15,7 +15,7 @@ def isbn_validator(isbn):
         raise ValidationError(err)
 
 class Author(models.Model):
-    name = models.CharField(max_length=45, help_text="Full Name")
+    name = models.CharField(max_length=45, help_text="Full Name", unique=True)
 
     @property
     def first_name(self):
@@ -45,13 +45,13 @@ class Author(models.Model):
         return self.apa_name
 
 class Publisher(models.Model):
-    name = models.CharField(max_length=45)
+    name = models.CharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.name
 
 class Category(models.Model):
-    name = models.CharField(max_length=45)
+    name = models.CharField(max_length=45, unique=True)
 
     class Meta:
         verbose_name_plural = 'categories'
