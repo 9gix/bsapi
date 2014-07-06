@@ -61,7 +61,7 @@ class BookProviderView(generics.ListAPIView):
 
             # ISBN
             id_type_map = {
-                    'ISBN_13': 'isbn13',
+                    'ISBN_13': 'isbn',
                     'ISBN_10': 'isbn10'
             }
             for identifier in book_data.get('industryIdentifiers', []):
@@ -96,13 +96,13 @@ class BookProviderView(generics.ListAPIView):
                 book_data['published_on'] = pubdate
 
 
-            if book_data.get('isbn13'):
+            if book_data.get('isbn'):
                 try:
                     book = Book.objects.get(isbn13=book_data.get('isbn13'))
                 except ObjectDoesNotExist:
                     book = None
 
-                serializer = BookSerializer(book, data=book_data)
+                serializer = self.serializer_class(book, data=book_data)
                 if serializer.is_valid():
                     serializer.save()
                     book_list.append(serializer.object)
