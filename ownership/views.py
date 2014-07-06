@@ -14,6 +14,3 @@ class UserBookViewSet(viewsets.ModelViewSet):
         permissions.IsAuthenticatedOrReadOnly,
         IsOwnerOrAdminElseReadOnly,
     )
-
-    def pre_save(self, obj):
-        obj.owner = self.request.user
