@@ -1,29 +1,31 @@
 from django.db import models
 from django.conf import settings
+from communities.models import Membership
 
 class Transaction(models.Model):
     book = models.ForeignKey('ownership.UserBook')
-    borrower = models.ForeignKey(settings.AUTH_USER_MODEL) #not sure about the foreign key, currently there are too many users defined. i.e. settings.AUTH_USER_MODEL, membership.user, accounts.UserProfile 
-    lender = book.owner #not sure whether it is ok to do this
+    borrower = models.ForeignKey(settings.AUTH_USER_MODEL)
+    lender = book.owner
     transaction_date = models.DateField(auto_now_add = True)
-    BOOK_RETURN_CHOICES = (
-        ('UN', 'Unreturned'),
-        ('RE', 'Returned'),
+    TRANSACTION_STATUS_CHOICES = (
+        ('OL', 'On Loan'),
+        ('AL', 'Available'),
         ('LO', 'Lost'),
     )
-    book_return = models.CharField(max_length = 2, choices = BOOK_RETURN_CHOICES, default = 'UN')
+    transaction_status = models.CharField(max_length = 2, choices = TRANSACTION_STATUS_CHOICES, default = 'OL')
 
-    def create_transaction(self):
-    #this function should involve the transaction of credit, lender increase reputation
-        self.book.current_holder = borrower
-        self.book.owner.reputation.increase()
-        
+    @classmethod
+    def create(cls, **kwargs):
+        new_transaction = cls(**kwargs)
+        new_transaction.book.current_holder = self.borrower
+        Membership.objects.all().get(user = new_transaction.lender).reputation.increase()
+        return new_transaction
+    #override the creation of Transaction     
 
     def terminate_transaction(self):
-
-        #lender edit the status of book_return
-        if self.book_return == 'RE':
-            self.book.current_holder = lender
-        elif self.book_return == 'LO':
-            #user should remove the page of book: self.book.delete()
-            self.borrower.reputation.decrease()#since reputation is not merged, this one may show error
+        #after owner edit the transaction_status
+        if self.transaction_status == 'AL':
+            self.book.current_holder = self.lender
+        elif self.transaction_status == 'LO':
+            #edit book's status
+            Membership.objects.all().get(user = self.borrower).reputation.decrease()
