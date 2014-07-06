@@ -10,7 +10,7 @@ from accounts.views import (
 from comm.views import (
         ConversationViewSet, ConversationMessageViewSet
 )
-from ownership.views import UserBookViewSet
+from ownership.views import UserBookViewSet, MyBookViewSet
 from catalog.views import BookViewSet
 from communities.views import CommunityViewSet, MembershipViewSet
 
@@ -23,6 +23,7 @@ router.register(r'conversations', ConversationViewSet)
 router.register(r'messages', ConversationMessageViewSet)
 router.register(r'books', BookViewSet)
 router.register(r'user-books', UserBookViewSet)
+router.register(r'my-books', MyBookViewSet)
 router.register(r'communities', CommunityViewSet)
 router.register(r'membership', MembershipViewSet)
 resource_urlpatterns = router.urls

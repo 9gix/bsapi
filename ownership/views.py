@@ -14,3 +14,9 @@ class UserBookViewSet(viewsets.ModelViewSet):
         permissions.IsAuthenticatedOrReadOnly,
         IsOwnerOrAdminElseReadOnly,
     )
+
+class MyBookViewSet(UserBookViewSet):
+
+    def get_queryset(self):
+        user = self.request.user
+        return UserBook.objects.filter(owner=user)
