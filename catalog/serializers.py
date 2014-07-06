@@ -8,9 +8,12 @@ class BookSerializer(serializers.ModelSerializer):
             view_name="book-detail",
             lookup_field='isbn13')
     isbn = serializers.CharField(source='isbn13')
-    authors = serializers.SlugRelatedField(many=True, slug_field='name')
-    publisher = serializers.SlugRelatedField(slug_field='name')
-    categories = serializers.SlugRelatedField(many=True, slug_field='name')
+    authors = serializers.SlugRelatedField(many=True, slug_field='name',
+            required=False)
+    publisher = serializers.SlugRelatedField(slug_field='name',
+            required=False)
+    categories = serializers.SlugRelatedField(many=True, slug_field='name',
+            required=False)
     owners = serializers.RelatedField(many=True)
 
     class Meta:

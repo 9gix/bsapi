@@ -70,21 +70,22 @@ class BookProviderView(generics.ListAPIView):
 
             # Category
             categories = book_data.get('categories', [])
-            categories = [dict(name=cat) for cat in categories]
+            categories = [dict(name=cat) for cat in categories if cat]
             categories = [get_or_create_name(Category, cat) for cat in categories]
             book_data['categories'] = categories
 
 
             # Author
             authors = book_data.get('authors', [])
-            authors = [dict(name=auth) for auth in authors]
+            authors = [dict(name=auth) for auth in authors if auth]
             authors = [get_or_create_name(Author, auth) for auth in authors]
             book_data['authors'] = authors
 
             # Publisher
             publisher = book_data.get('publisher')
-            publisher = get_or_create_name(Publisher, dict(name=publisher))
-            book_data['publisher'] = publisher
+            if publisher:
+                publisher = get_or_create_name(Publisher, dict(name=publisher))
+                book_data['publisher'] = publisher
 
             # Publication Date
             pubdate = book_data.get('publishedDate', '')
@@ -98,7 +99,7 @@ class BookProviderView(generics.ListAPIView):
 
             if book_data.get('isbn'):
                 try:
-                    book = Book.objects.get(isbn13=book_data.get('isbn13'))
+                    book = Book.objects.get(isbn13=book_data.get('isbn'))
                 except ObjectDoesNotExist:
                     book = None
 
