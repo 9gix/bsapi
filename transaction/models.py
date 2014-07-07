@@ -5,27 +5,27 @@ from communities.models import Membership
 class Transaction(models.Model):
     book = models.ForeignKey('ownership.UserBook')
     borrower = models.ForeignKey(settings.AUTH_USER_MODEL)
-    lender = book.owner
     transaction_date = models.DateField(auto_now_add = True)
+    ON_LOAN = 1
+    AVAILABLE = 0
+    LOST = -1
     TRANSACTION_STATUS_CHOICES = (
-        ('OL', 'On Loan'),
-        ('AL', 'Available'),
-        ('LO', 'Lost'),
+        (ON_LOAN, 'On Loan'),
+        (AVAILABLE, 'Available'),
+        (LOST, 'Lost'),
     )
-    transaction_status = models.CharField(max_length = 2, choices = TRANSACTION_STATUS_CHOICES, default = 'OL')
+    transaction_status = models.SmallIntegerField(choices = TRANSACTION_STATUS_CHOICES, default = ON_LOAN)
 
+#override the creation of Transaction 
     @classmethod
     def create(cls, **kwargs):
         new_transaction = cls(**kwargs)
-        new_transaction.book.current_holder = self.borrower
-        Membership.objects.all().get(user = new_transaction.lender).reputation.increase()
+        new_transaction.book.current_holder = new_transaction.borrower
+        Membership.objects.all().get(user = new_transaction.book.owner).reputation.increase()
         return new_transaction
-    #override the creation of Transaction     
+    
 
     def terminate_transaction(self):
-        #after owner edit the transaction_status
-        if self.transaction_status == 'AL':
-            self.book.current_holder = self.lender
-        elif self.transaction_status == 'LO':
+        if self.transaction_status == LOST:
             #edit book's status
             Membership.objects.all().get(user = self.borrower).reputation.decrease()
