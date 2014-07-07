@@ -15,7 +15,13 @@ class UserBookViewSet(viewsets.ModelViewSet):
         IsOwnerOrAdminElseReadOnly,
     )
 
-class MyBookViewSet(UserBookViewSet):
+class MyBookViewSet(viewsets.ModelViewSet):
+    model = UserBook
+    serializer_class = UserBookSerializer
+    permission_classes = (
+        permissions.IsAuthenticated,
+        IsOwnerOrAdminElseReadOnly,
+    )
 
     def get_queryset(self):
         user = self.request.user
