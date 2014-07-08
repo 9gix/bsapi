@@ -2,6 +2,13 @@ from django.db import models
 from django.conf import settings
 from communities.models import Membership
 
+class TransactionManager(models.Manager):
+    def create_transaction(self, **kwargs):
+        new_transaction = self.create(**kwargs)
+        new_transaction.book.current_holder = new_transaction.borrower
+        Membership.objects.all().get(user = new_transaction.book.owner).reputation.increase()
+        return new_transaction
+
 class Transaction(models.Model):
     book = models.ForeignKey('ownership.UserBook')
     borrower = models.ForeignKey(settings.AUTH_USER_MODEL)
@@ -16,13 +23,7 @@ class Transaction(models.Model):
     )
     transaction_status = models.SmallIntegerField(choices = TRANSACTION_STATUS_CHOICES, default = ON_LOAN)
 
-#override the creation of Transaction 
-    @classmethod
-    def create(cls, **kwargs):
-        new_transaction = cls(**kwargs)
-        new_transaction.book.current_holder = new_transaction.borrower
-        Membership.objects.all().get(user = new_transaction.book.owner).reputation.increase()
-        return new_transaction
+    objects = TransactionManager()
     
 
     def terminate_transaction(self):
