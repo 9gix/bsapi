@@ -6,7 +6,7 @@ class TransactionManager(models.Manager):
     def create_transaction(self, **kwargs):
         new_transaction = self.create(**kwargs)
         new_transaction.book.current_holder = new_transaction.borrower
-        Membership.objects.all().get(user = new_transaction.book.owner).reputation.increase()
+        Membership.objects.get(user = new_transaction.book.owner).reputation.increase()
         return new_transaction
 
 class Transaction(models.Model):
@@ -26,7 +26,5 @@ class Transaction(models.Model):
     objects = TransactionManager()
     
 
-    def terminate_transaction(self):
-        if self.transaction_status == LOST:
-            #edit book's status
-            Membership.objects.all().get(user = self.borrower).reputation.decrease()
+    def report_loss(self):
+        Membership.objects.get(user = self.borrower).reputation.decrease()
