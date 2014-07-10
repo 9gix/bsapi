@@ -182,6 +182,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:9000',
     'localhost:9000',
+    '9gix.github.io',
 )
 CORS_ALLOW_CREDENTIALS = True
 CSRF_COOKIE_DOMAIN = ''
