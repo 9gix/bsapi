@@ -11,8 +11,9 @@ from rest_framework import generics
 
 from catalog.models import (
         Book, Publisher, Category, Author)
-from catalog.serializers import BookSerializer
+from catalog.serializers import BookSerializer, CategorySerializer
 from catalog import providers
+from catalog.filters import BookFilter
 
 logger = logging.getLogger(__name__)
 
@@ -24,15 +25,21 @@ def get_or_create_name(model, attrs):
 class BookViewSet(viewsets.ModelViewSet):
     """This endpoint will provide books information in our system.
 
-    To use this API you have to provide the `isbn13` into the url. 
+    To use this API you have to provide the `isbn13` into the url.
 
     - `/books/`
     - `/books/9780062073488/`
     - `/books/9781101161883/`
+
+    You can also filter the categories of the book, e.g.
+
+    - `/books/?categories=history`
+    - `/books/?categories=history,crafts-hobbies`
     """
     model = Book
     serializer_class = BookSerializer
     lookup_field = 'isbn13'
+    filter_class = BookFilter
 
 
 class BookProviderView(generics.ListAPIView):
@@ -138,3 +145,11 @@ class SearchView(generics.ListAPIView):
 
 
 search = SearchView.as_view()
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    """This endpoint will provide the book categories in our system.
+    You can use the `slug` field as a filter in the Book Resource
+    """
+    model = Category
+    serializer_class = CategorySerializer

@@ -11,7 +11,7 @@ from comm.views import (
         ConversationViewSet, ConversationMessageViewSet
 )
 from ownership.views import UserBookViewSet, MyBookViewSet
-from catalog.views import BookViewSet
+from catalog.views import BookViewSet, CategoryViewSet
 from communities.views import CommunityViewSet, MembershipViewSet
 
 # API routers URL
@@ -22,6 +22,7 @@ router.register(r'groups', GroupViewSet)
 router.register(r'conversations', ConversationViewSet)
 router.register(r'messages', ConversationMessageViewSet)
 router.register(r'books', BookViewSet)
+router.register(r'categories', CategoryViewSet)
 router.register(r'user-books', UserBookViewSet)
 router.register(r'my-books', MyBookViewSet)
 router.register(r'communities', CommunityViewSet)

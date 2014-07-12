@@ -61,7 +61,6 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'social.apps.django_app.default',
 
-
     ################
     # Internal App #
     ################
@@ -132,6 +131,9 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework.filters.DjangoFilterBackend',
     ),
     'PAGINATE_BY': 20
 }

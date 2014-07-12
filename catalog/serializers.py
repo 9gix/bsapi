@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from catalog.models import Book
+from catalog.models import Book, Category
 
 
 class BookSerializer(serializers.ModelSerializer):
@@ -20,3 +20,7 @@ class BookSerializer(serializers.ModelSerializer):
 
     def get_identity(self, data):
         return data.get('isbn13')
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category

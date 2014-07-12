@@ -52,9 +52,13 @@ class Publisher(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=45, unique=True)
+    slug = AutoSlugField(unique=True, populate_from='name')
 
     class Meta:
         verbose_name_plural = 'categories'
+
+    def __str__(self):
+        return self.name
 
 
 class Book(models.Model):
