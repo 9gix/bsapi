@@ -1,7 +1,7 @@
 from django.db import models
 from enum import Enum
 
-class ReservationStatus(Enum):
+class ReservationStatus:
     PENDING = 0
     ACCEPTED = 1
     REJECTED = -1

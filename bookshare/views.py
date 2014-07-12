@@ -27,5 +27,7 @@ def api_root(request, format=None):
             format=format),
         'search-book-in-system': reverse('search', request=request,
             format=format),
+        'categories' : reverse('category-list', request=request,
+            format=format),
     })
 
