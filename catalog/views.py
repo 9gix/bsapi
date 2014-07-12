@@ -1,5 +1,7 @@
+import logging
 from datetime import datetime
 
+from django.core.exceptions import ObjectDoesNotExist
 from haystack.inputs import Clean
 from haystack.query import SearchQuerySet
 from rest_framework import viewsets
@@ -9,22 +11,35 @@ from rest_framework import generics
 
 from catalog.models import (
         Book, Publisher, Category, Author)
-from catalog.serializers import BookSerializer
+from catalog.serializers import BookSerializer, CategorySerializer
 from catalog import providers
+from catalog.filters import BookFilter
 
+logger = logging.getLogger(__name__)
+
+
+def get_or_create_name(model, attrs):
+    obj, created = model.objects.get_or_create(**attrs)
+    return obj.name
 
 class BookViewSet(viewsets.ModelViewSet):
     """This endpoint will provide books information in our system.
 
-    To use this API you have to provide the `isbn13` into the url. 
+    To use this API you have to provide the `isbn13` into the url.
 
     - `/books/`
     - `/books/9780062073488/`
     - `/books/9781101161883/`
+
+    You can also filter the categories of the book, e.g.
+
+    - `/books/?categories=history`
+    - `/books/?categories=history,crafts-hobbies`
     """
     model = Book
     serializer_class = BookSerializer
     lookup_field = 'isbn13'
+    filter_class = BookFilter
 
 
 class BookProviderView(generics.ListAPIView):
@@ -50,36 +65,36 @@ class BookProviderView(generics.ListAPIView):
             for k, v in item.get('volumeInfo').items():
                 book_data[k] = v
 
-            # Publisher
-            publisher = book_data.get('publisher')
-            if publisher:
-                publisher, created = Publisher.objects.get_or_create(
-                        name=book_data['publisher'])
-                book_data['publisher'] = publisher.id
 
             # ISBN
             id_type_map = {
-                    'ISBN_13': 'isbn13',
+                    'ISBN_13': 'isbn',
                     'ISBN_10': 'isbn10'
             }
             for identifier in book_data.get('industryIdentifiers', []):
                 id_type = id_type_map.get(identifier.get('type'))
                 book_data.update({id_type: identifier['identifier']})
 
-            # Author
-            authors = []
-            for auth in book_data.get('authors',[]):
-                author, created = Author.objects.get_or_create(name=auth)
-                authors.append(author.id)
-            book_data['authors'] = authors
-
             # Category
-            categories = []
-            for cat in book_data.get('categories',[]):
-                category, created = Category.objects.get_or_create(name=cat)
-                categories.append(category.id)
+            categories = book_data.get('categories', [])
+            categories = [dict(name=cat) for cat in categories if cat]
+            categories = [get_or_create_name(Category, cat) for cat in categories]
             book_data['categories'] = categories
 
+
+            # Author
+            authors = book_data.get('authors', [])
+            authors = [dict(name=auth) for auth in authors if auth]
+            authors = [get_or_create_name(Author, auth) for auth in authors]
+            book_data['authors'] = authors
+
+            # Publisher
+            publisher = book_data.get('publisher')
+            if publisher:
+                publisher = get_or_create_name(Publisher, dict(name=publisher))
+                book_data['publisher'] = publisher
+
+            # Publication Date
             pubdate = book_data.get('publishedDate', '')
             try:
                 clean_date = datetime.strptime(pubdate, "%Y-%m-%d")
@@ -88,16 +103,22 @@ class BookProviderView(generics.ListAPIView):
             else:
                 book_data['published_on'] = pubdate
 
-            if book_data.get('isbn13'):
-                book_list.append(book_data)
 
-        book_list = [book for book in book_list if 'isbn13' in book]
-        isbn13_list = [book['isbn13'] for book in book_list]
-        queryset = Book.objects.select_related('publisher').filter(isbn13__in=isbn13_list)
-        serializer = BookSerializer(queryset, data=book_list, many=True, allow_add_remove=True)
-        if serializer.is_valid():
-            serializer.save()
-        return serializer.object
+            if book_data.get('isbn'):
+                try:
+                    book = Book.objects.get(isbn13=book_data.get('isbn'))
+                except ObjectDoesNotExist:
+                    book = None
+
+                serializer = self.serializer_class(book, data=book_data)
+                if serializer.is_valid():
+                    serializer.save()
+                    book_list.append(serializer.object)
+                else:
+                    logger.warning(serializer.errors)
+                    logger.warning(book_data)
+
+        return book_list
 
 
 book_provider = BookProviderView.as_view()
@@ -124,3 +145,11 @@ class SearchView(generics.ListAPIView):
 
 
 search = SearchView.as_view()
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    """This endpoint will provide the book categories in our system.
+    You can use the `slug` field as a filter in the Book Resource
+    """
+    model = Category
+    serializer_class = CategorySerializer

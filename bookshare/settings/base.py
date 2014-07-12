@@ -61,7 +61,6 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'social.apps.django_app.default',
 
-
     ################
     # Internal App #
     ################
@@ -135,6 +134,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework.filters.DjangoFilterBackend',
+    ),
     'PAGINATE_BY': 20
 }
 
@@ -184,6 +186,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:9000',
     'localhost:9000',
+    '9gix.github.io',
 )
 CORS_ALLOW_CREDENTIALS = True
 CSRF_COOKIE_DOMAIN = ''

@@ -15,5 +15,14 @@ class UserBookViewSet(viewsets.ModelViewSet):
         IsOwnerOrAdminElseReadOnly,
     )
 
-    def pre_save(self, obj):
-        obj.owner = self.request.user
+class MyBookViewSet(viewsets.ModelViewSet):
+    model = UserBook
+    serializer_class = UserBookSerializer
+    permission_classes = (
+        permissions.IsAuthenticated,
+        IsOwnerOrAdminElseReadOnly,
+    )
+
+    def get_queryset(self):
+        user = self.request.user
+        return UserBook.objects.filter(owner=user)
