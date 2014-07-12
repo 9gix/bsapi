@@ -13,6 +13,7 @@ from comm.views import (
 from ownership.views import UserBookViewSet, MyBookViewSet
 from catalog.views import BookViewSet, CategoryViewSet
 from communities.views import CommunityViewSet, MembershipViewSet
+from transaction.views import TransactionViewSet
 
 # API routers URL
 router = routers.DefaultRouter()
@@ -27,6 +28,7 @@ router.register(r'user-books', UserBookViewSet)
 router.register(r'my-books', MyBookViewSet)
 router.register(r'communities', CommunityViewSet)
 router.register(r'membership', MembershipViewSet)
+router.register(r'transaction', TransactionViewSet)
 resource_urlpatterns = router.urls
 
 # API customs views URL
