@@ -22,7 +22,8 @@ django-filter>=0.7,<0.8
 
 gdata>=2.0.18,<2.1
 
-django-extensions>=1.3.3,<1.4
+# django-extensions>=1.3.3,<1.4
+-e git+git@github.com:9gix/django-extensions.git@bugfix/printsql-django17#egg=django-extensions
 
 bpython>=0.12,<1
 

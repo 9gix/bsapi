@@ -31,10 +31,19 @@ class BookViewSet(viewsets.ModelViewSet):
     - `/books/9780062073488/`
     - `/books/9781101161883/`
 
+    ##Allowed Query Parameters:
+
+    ### Categories
     You can also filter the categories of the book, e.g.
 
     - `/books/?categories=history`
     - `/books/?categories=history,crafts-hobbies`
+
+    ### With Owner
+    Only show books that listed in our system
+
+    - `/books/?with_owner=True`
+    - `/books/?with_owner=False`
     """
     model = Book
     serializer_class = BookSerializer
