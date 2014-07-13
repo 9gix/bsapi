@@ -13,7 +13,7 @@ from catalog.models import (
         Book, Publisher, Category, Author)
 from catalog.serializers import BookSerializer, CategorySerializer
 from catalog import providers
-from catalog.filters import BookFilter
+from catalog.filters import BookFilter, CategoryFilter
 
 logger = logging.getLogger(__name__)
 
@@ -159,6 +159,15 @@ search = SearchView.as_view()
 class CategoryViewSet(viewsets.ModelViewSet):
     """This endpoint will provide the book categories in our system.
     You can use the `slug` field as a filter in the Book Resource
+
+    ##Allowed Query Parameters:
+
+    ### With Owner
+    Only show category whose books listed in our system
+
+    - `/categories/?with_owner=True`
+    - `/categories/?with_owner=False`
     """
     model = Category
     serializer_class = CategorySerializer
+    filter_class = CategoryFilter
