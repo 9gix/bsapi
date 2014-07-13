@@ -15,7 +15,7 @@ def isbn_validator(isbn):
         raise ValidationError(err)
 
 class Author(models.Model):
-    name = models.CharField(max_length=45, help_text="Full Name", unique=True)
+    name = models.CharField(max_length=100, help_text="Full Name", unique=True)
 
     @property
     def first_name(self):
