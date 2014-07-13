@@ -45,13 +45,13 @@ class Author(models.Model):
         return self.apa_name
 
 class Publisher(models.Model):
-    name = models.CharField(max_length=45, unique=True)
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
 
 class Category(models.Model):
-    name = models.CharField(max_length=45, unique=True)
+    name = models.CharField(max_length=100, unique=True)
     slug = AutoSlugField(unique=True, populate_from='name')
 
     class Meta:
@@ -72,7 +72,7 @@ class Book(models.Model):
             help_text="Enter the unique ISBN-13",
             blank=True, null=True)
 
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=150)
     subtitle = models.CharField(max_length=255, blank=True)
 
     description = models.TextField(blank=True)
