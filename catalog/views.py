@@ -142,6 +142,7 @@ class SearchView(generics.ListAPIView):
     """
     model = Book
     serializer_class = BookSerializer
+    filter_class = BookFilter
     def get_queryset(self, *args, **kwargs):
         results = SearchQuerySet().filter(content=Clean(self.request.QUERY_PARAMS.get('q','')))
 
