@@ -33,5 +33,9 @@ def api_root(request, format=None):
             format=format),
         'reservation' : reverse('loanrequest-list', request=request,
             format=format),
+        'channel' : reverse('channel-list', request=request,
+            format=format),
+        'messaging' : reverse('channelmessage-list', request=request,
+            format=format),
     })
 
