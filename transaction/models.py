@@ -4,12 +4,10 @@ from communities.models import Membership
 
 
 class Transaction(models.Model):
-    loan_request = models.OneToOneField('reservation.LoanRequest', null=True)
+    loan_request = models.OneToOneField('reservation.LoanRequest')
     transaction_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return "{} | Owner: {} -> Borrower: {} | {}".format(
-                self.loan_request.owner_book.book.isbn13,
-                self.loan_request.owner_book.owner.username,
-                self.loan_request.borrower_membership.user.username,
+        return "{} transacted at {}".format(
+                self.loan_request,
                 self.transaction_date)
