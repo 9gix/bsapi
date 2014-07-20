@@ -1,25 +1,10 @@
 from django.db import models
-from enum import Enum
-
-class ReservationStatus:
-    PENDING = 0
-    ACCEPTED = 1
-    REJECTED = -1
-
 
 class Channel(models.Model):
-    STATUS_CHOICES = (
-        (ReservationStatus.PENDING, 'Waiting for approval'),
-        (ReservationStatus.ACCEPTED, 'Request approved'),
-        (ReservationStatus.REJECTED, 'Request unsuccessful'),
-    )
-
     user_book = models.ForeignKey('ownership.UserBook')
+    user_book_request = models.OneToOneField('reservation.UserBookRequest')
     borrower = models.ForeignKey('auth.User')
 
-    reservation_status = models.SmallIntegerField(
-            choices=STATUS_CHOICES,
-            default=ReservationStatus.PENDING)
 
 class ChannelMessage(models.Model):
     channel = models.ForeignKey(Channel)
