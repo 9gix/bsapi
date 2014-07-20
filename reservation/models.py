@@ -19,3 +19,9 @@ class LoanRequest(models.Model):
     borrower_membership = models.ForeignKey('communities.Membership')
 
     status = models.IntegerField(max_length=1, choices=_REQUEST_STATUS)
+
+    def __str__(self):
+        return "[{}] {} -requested- {}".format(
+                self.get_status_display(),
+                self.borrower_membership,
+                self.owner_book)
