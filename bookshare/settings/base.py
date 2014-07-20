@@ -66,7 +66,7 @@ INSTALLED_APPS = (
     ################
     'accounts',
     'catalog',
-    'comm',
+    'conversation',
     'communities',
     'ownership',
     'transaction',

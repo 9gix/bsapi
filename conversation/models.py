@@ -7,7 +7,7 @@ class ReservationStatus:
     REJECTED = -1
 
 
-class Conversation(models.Model):
+class Channel(models.Model):
     STATUS_CHOICES = (
         (ReservationStatus.PENDING, 'Waiting for approval'),
         (ReservationStatus.ACCEPTED, 'Request approved'),
@@ -21,8 +21,8 @@ class Conversation(models.Model):
             choices=STATUS_CHOICES,
             default=ReservationStatus.PENDING)
 
-class ConversationMessage(models.Model):
-    conversation = models.ForeignKey(Conversation)
+class ChannelMessage(models.Model):
+    channel = models.ForeignKey(Channel)
     content = models.TextField()
 
     sender = models.ForeignKey('auth.User', related_name='outbox_set')

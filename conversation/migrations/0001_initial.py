@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Conversation',
+            name='Channel',
             fields=[
                 ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
                 ('reservation_status', models.SmallIntegerField(default=0, choices=[(0, 'Waiting for approval'), (1, 'Request approved'), (-1, 'Request unsuccessful')])),
@@ -26,13 +26,13 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='ConversationMessage',
+            name='ChannelMessage',
             fields=[
                 ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
                 ('content', models.TextField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now=True)),
-                ('conversation', models.ForeignKey(to='comm.Conversation')),
+                ('conversation', models.ForeignKey(to='conversation.Channel')),
                 ('receiver', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
                 ('sender', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
