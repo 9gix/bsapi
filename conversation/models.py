@@ -1,9 +1,8 @@
 from django.db import models
 
 class Channel(models.Model):
-    user_book = models.ForeignKey('ownership.UserBook')
     user_book_request = models.OneToOneField('reservation.UserBookRequest')
-    borrower = models.ForeignKey('auth.User')
+    appointment_at = models.DateTimeField(blank=True, null=True)
 
 
 class ChannelMessage(models.Model):
