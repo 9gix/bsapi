@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='UserBookRequest',
+            name='LoanRequest',
             fields=[
                 ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
                 ('status', models.IntegerField(max_length=1, choices=[(0, 'Waiting for owner approval'), (1, 'Request approved'), (-1, 'Request unsuccessful')])),

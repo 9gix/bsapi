@@ -1,20 +1,21 @@
 from django.db import models
 
 
-class BookRequestStatus:
+class LoanRequestStatus:
     PENDING = 0
     APPROVED = 1
     REJECTED = -1
 
 
-class UserBookRequest(models.Model):
+class LoanRequest(models.Model):
 
     _REQUEST_STATUS = (
-        (BookRequestStatus.PENDING, 'Waiting for owner approval'),
-        (BookRequestStatus.APPROVED, 'Request approved'),
-        (BookRequestStatus.REJECTED, 'Request unsuccessful'),
+        (LoanRequestStatus.PENDING, 'Waiting for owner approval'),
+        (LoanRequestStatus.APPROVED, 'Request approved'),
+        (LoanRequestStatus.REJECTED, 'Request unsuccessful'),
     )
 
-    user_book = models.ForeignKey('ownership.UserBook')
-    borrower = models.ForeignKey('auth.User')
+    owner_book = models.ForeignKey('ownership.UserBook')
+    borrower_membership = models.ForeignKey('communities.Membership')
+
     status = models.IntegerField(max_length=1, choices=_REQUEST_STATUS)

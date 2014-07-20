@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='channel',
             name='user_book_request',
-            field=models.OneToOneField(to='reservation.UserBookRequest', default=1),
+            field=models.OneToOneField(to='reservation.LoanRequest', default=1),
             preserve_default=False,
         ),
         migrations.RenameField(

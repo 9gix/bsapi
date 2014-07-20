@@ -1,7 +1,7 @@
 from django.db import models
 
 class Channel(models.Model):
-    user_book_request = models.OneToOneField('reservation.UserBookRequest')
+    user_book_request = models.OneToOneField('reservation.LoanRequest')
     appointment_at = models.DateTimeField(blank=True, null=True)
 
 
