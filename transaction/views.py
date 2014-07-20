@@ -8,5 +8,3 @@ from transaction.serializers import TransactionSerializer
 class TransactionViewSet(viewsets.ModelViewSet):
     model = Transaction
     serializer_class = TransactionSerializer
-
-
