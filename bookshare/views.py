@@ -31,5 +31,7 @@ def api_root(request, format=None):
             format=format),
         'categories' : reverse('category-list', request=request,
             format=format),
+        'reservation' : reverse('loanrequest-list', request=request,
+            format=format),
     })
 
