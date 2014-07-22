@@ -11,6 +11,7 @@ from communities.serializers import MembershipSerializer
 class CommunityViewSet(viewsets.ModelViewSet):
     model = Community
     serializer_class = CommunitySerializer
+    lookup_field = 'slug'
 
 class MembershipViewSet(viewsets.ModelViewSet):
     model = Membership
