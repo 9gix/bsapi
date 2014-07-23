@@ -1,33 +1,22 @@
 from django.db import models
-from enum import Enum
-
-class ReservationStatus:
-    PENDING = 0
-    ACCEPTED = 1
-    REJECTED = -1
-
 
 class Channel(models.Model):
-    STATUS_CHOICES = (
-        (ReservationStatus.PENDING, 'Waiting for approval'),
-        (ReservationStatus.ACCEPTED, 'Request approved'),
-        (ReservationStatus.REJECTED, 'Request unsuccessful'),
-    )
+    loan_request = models.OneToOneField('reservation.LoanRequest')
+    appointment_at = models.DateTimeField(blank=True, null=True)
 
-    user_book = models.ForeignKey('ownership.UserBook')
-    borrower = models.ForeignKey('auth.User')
+    def __str__(self):
+        return "{}".format(self.loan_request)
 
-    reservation_status = models.SmallIntegerField(
-            choices=STATUS_CHOICES,
-            default=ReservationStatus.PENDING)
 
 class ChannelMessage(models.Model):
     channel = models.ForeignKey(Channel)
     content = models.TextField()
 
     sender = models.ForeignKey('auth.User', related_name='outbox_set')
-    receiver = models.ForeignKey('auth.User', related_name='inbox_set')
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
+
+    def __str__(self):
+        return "[{}] {}: {}".format(self.channel, self.sender, self.content)

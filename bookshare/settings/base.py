@@ -71,6 +71,7 @@ INSTALLED_APPS = (
     'ownership',
     'transaction',
     'reputation',
+    'reservation',
 
 
     ####################
