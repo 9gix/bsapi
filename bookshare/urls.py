@@ -8,7 +8,7 @@ from accounts.views import (
 )
 
 from conversation.views import (
-        ChannelViewSet, ChannelMessageViewSet
+        ChannelViewSet, MessageViewSet
 )
 from ownership.views import UserBookViewSet, MyBookViewSet
 from catalog.views import BookViewSet, CategoryViewSet
@@ -22,7 +22,7 @@ router.register(r'users', UserViewSet)
 router.register(r'users-profile', UserProfileViewSet)
 router.register(r'groups', GroupViewSet)
 router.register(r'conversations', ChannelViewSet)
-router.register(r'messages', ChannelMessageViewSet)
+router.register(r'messages', MessageViewSet)
 router.register(r'books', BookViewSet)
 router.register(r'categories', CategoryViewSet)
 router.register(r'user-books', UserBookViewSet)

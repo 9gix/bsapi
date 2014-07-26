@@ -8,7 +8,7 @@ class Channel(models.Model):
         return "{}".format(self.loan_request)
 
 
-class ChannelMessage(models.Model):
+class Message(models.Model):
     channel = models.ForeignKey(Channel)
     content = models.TextField()
 

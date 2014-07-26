@@ -35,7 +35,7 @@ def api_root(request, format=None):
             format=format),
         'channel' : reverse('channel-list', request=request,
             format=format),
-        'messaging' : reverse('channelmessage-list', request=request,
+        'messaging' : reverse('message-list', request=request,
             format=format),
     })
 
