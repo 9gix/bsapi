@@ -6,6 +6,7 @@ from communities.models import Community
 from communities.models import Membership
 from communities.serializers import CommunitySerializer
 from communities.serializers import MembershipSerializer
+from communities.filters import MembershipFilter
 
 
 class CommunityViewSet(viewsets.ModelViewSet):
@@ -16,3 +17,4 @@ class CommunityViewSet(viewsets.ModelViewSet):
 class MembershipViewSet(viewsets.ModelViewSet):
     model = Membership
     serializer_class = MembershipSerializer
+    filter_class = MembershipFilter
