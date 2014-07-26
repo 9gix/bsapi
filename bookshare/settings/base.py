@@ -215,4 +215,6 @@ SHELL_PLUS_POST_IMPORTS = (
     ('catalog.views', '*'),
     ('pprint','pprint'),
     ('urllib', 'request'),
+    ('django.core.urlresolvers', 'reverse'),
+    ('django.core.urlresolvers', 'resolve'),
 )
