@@ -26,3 +26,10 @@ class LoanRequest(models.Model):
                 self.get_status_display(),
                 self.borrower_membership,
                 self.owner_book)
+
+    def approve(self):
+        self.status = LoanRequestStatus.APPROVED
+        return self.save()
+
+    def isApproved(self):
+        return self.status == LoanRequestStatus.APPROVED
