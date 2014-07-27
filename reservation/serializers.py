@@ -11,7 +11,7 @@ class LoanRequestSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = LoanRequest
-        fields = ('url', 'owner_book', 'borrower_membership', 'status')
+        fields = ('url', 'id', 'owner_book', 'borrower_membership', 'status')
 
     def get_fields(self, *args, **kwargs):
         fields = super().get_fields(*args, **kwargs)
