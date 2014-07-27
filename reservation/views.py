@@ -25,3 +25,14 @@ class LoanRequestViewSet(viewsets.ModelViewSet):
             return Response(
                     {'errors': 'request already been approved'},
                     status=status.HTTP_400_BAD_REQUEST)
+
+    @action()
+    def reject(self, request, pk=None):
+        loanrequest = self.get_object()
+        if not loanrequest.isRejected():
+            loanrequest.reject()
+            return Response({'status': loanrequest.get_status_display()})
+        else:
+            return Response(
+                    {'errors': 'request already been rejected'},
+                    status=status.HTTP_400_BAD_REQUEST)

@@ -31,5 +31,12 @@ class LoanRequest(models.Model):
         self.status = LoanRequestStatus.APPROVED
         return self.save()
 
+    def reject(self):
+        self.status = LoanRequestStatus.REJECTED
+        return self.save()
+
     def isApproved(self):
         return self.status == LoanRequestStatus.APPROVED
+
+    def isRejected(self):
+        return self.status == LoanRequestStatus.REJECTED
