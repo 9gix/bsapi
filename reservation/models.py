@@ -11,8 +11,8 @@ class LoanRequest(models.Model):
 
     _REQUEST_STATUS = (
         (LoanRequestStatus.PENDING, 'Waiting for owner approval'),
-        (LoanRequestStatus.APPROVED, 'Request approved'),
-        (LoanRequestStatus.REJECTED, 'Request unsuccessful'),
+        (LoanRequestStatus.APPROVED, 'Loan Request approved'),
+        (LoanRequestStatus.REJECTED, 'Loan Request rejected'),
     )
 
     owner_book = models.ForeignKey('ownership.UserBook')
