@@ -12,7 +12,8 @@ class MessageSerializer(serializers.ModelSerializer):
             lookup_field='pk')
     class Meta:
         model = Message
-        fields = ('url', 'channel', 'content', 'sender')
+        fields = ('url', 'channel', 'content', 'sender',
+                'created_at', 'modified_at')
 
     def restore_object(self, attrs, instance=None):
         instance =super().restore_object(attrs, instance)
