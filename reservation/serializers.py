@@ -7,7 +7,7 @@ class LoanRequestSerializer(serializers.ModelSerializer):
     url = serializers.HyperlinkedIdentityField(
             view_name="loanrequest-detail",
             lookup_field='pk')
-    status = serializers.CharField(source='get_status_display', read_only=True)
+    status = serializers.CharField(source='status', read_only=True)
 
     class Meta:
         model = LoanRequest

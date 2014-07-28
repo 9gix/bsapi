@@ -2,9 +2,9 @@ from django.db import models
 
 
 class LoanRequestStatus:
-    PENDING = 0
-    APPROVED = 1
-    REJECTED = -1
+    PENDING = 'pending'
+    APPROVED = 'approved'
+    REJECTED = 'rejected'
 
 
 class LoanRequest(models.Model):
@@ -18,7 +18,7 @@ class LoanRequest(models.Model):
     owner_book = models.ForeignKey('ownership.UserBook')
     borrower_membership = models.ForeignKey('communities.Membership')
 
-    status = models.IntegerField(max_length=1, choices=_REQUEST_STATUS,
+    status = models.CharField(max_length=8, choices=_REQUEST_STATUS,
             default=LoanRequestStatus.PENDING)
 
     def __str__(self):
