@@ -24,3 +24,10 @@ class Membership(models.Model):
 
     def __str__(self):
         return "{}: {}".format(self.community, self.user)
+
+def add_user_to_world_community(sender, instance, created, **kwargs):
+    if (created):
+        world_community = Community.objects.get(slug='world')
+        Membership.objects.create(
+                community=world_community,
+                user=instance)

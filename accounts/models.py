@@ -14,3 +14,6 @@ def create_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.get_or_create(user=instance)
 
 post_save.connect(create_user_profile, sender=User)
+
+from communities.models import add_user_to_world_community
+post_save.connect(add_user_to_world_community, sender=User)
