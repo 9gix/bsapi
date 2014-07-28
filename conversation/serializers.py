@@ -7,9 +7,12 @@ from conversation.models import (
 
 class MessageSerializer(serializers.ModelSerializer):
     sender = serializers.SlugRelatedField(slug_field='username', read_only=True)
+    url = serializers.HyperlinkedIdentityField(
+            view_name='message-detail',
+            lookup_field='pk')
     class Meta:
         model = Message
-        fields = ('channel', 'content', 'sender')
+        fields = ('url', 'channel', 'content', 'sender')
 
     def restore_object(self, attrs, instance=None):
         instance =super().restore_object(attrs, instance)
@@ -18,7 +21,10 @@ class MessageSerializer(serializers.ModelSerializer):
 
 
 class ChannelSerializer(serializers.ModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+            view_name='channel-detail',
+            lookup_field='pk')
     message_set = MessageSerializer(many=True, read_only=True)
     class Meta:
         model = Channel
-        fields = ('id', 'loan_request', 'appointment_at', 'message_set',)
+        fields = ('id', 'url', 'loan_request', 'appointment_at', 'message_set',)
