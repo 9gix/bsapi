@@ -13,6 +13,7 @@ class LoanRequestSerializer(serializers.ModelSerializer):
         model = LoanRequest
         fields = ('url', 'id', 'owner_book', 'borrower_membership', 'status',
                 'channel', 'transaction')
+        read_only_fields = ('channel', 'transaction')
 
     def get_fields(self, *args, **kwargs):
         fields = super().get_fields(*args, **kwargs)
