@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Q
 
 from rest_framework import viewsets
 from rest_framework import permissions
@@ -14,6 +15,10 @@ class LoanRequestViewSet(viewsets.ModelViewSet):
     model = LoanRequest
     serializer_class = LoanRequestSerializer
     permission_classes = (permissions.IsAuthenticated, )
+
+    def get_queryset(self):
+        user = self.request.user
+        return self.model.objects.filter(Q(borrower_membership__user=user)|Q(owner_book__owner=user)).distinct()
 
     @action()
     def approve(self, request, pk=None):
