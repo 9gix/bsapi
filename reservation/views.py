@@ -20,7 +20,7 @@ class LoanRequestViewSet(viewsets.ModelViewSet):
         loanrequest = self.get_object()
         if not loanrequest.isApproved():
             loanrequest.approve()
-            return Response({'status': loanrequest.get_status_display()})
+            return Response({'status': loanrequest.status})
         else:
             return Response(
                     {'errors': 'request already been approved'},
@@ -31,7 +31,7 @@ class LoanRequestViewSet(viewsets.ModelViewSet):
         loanrequest = self.get_object()
         if not loanrequest.isRejected():
             loanrequest.reject()
-            return Response({'status': loanrequest.get_status_display()})
+            return Response({'status': loanrequest.status})
         else:
             return Response(
                     {'errors': 'request already been rejected'},
