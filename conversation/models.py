@@ -19,4 +19,5 @@ class Message(models.Model):
 
 
     def __str__(self):
-        return "[{}] {}: {}".format(self.channel, self.sender, self.content)
+        return "[{}] {}: {}".format(self.channel, self.sender,
+                self.content[:50])
