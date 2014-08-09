@@ -139,6 +139,10 @@ class SearchView(generics.ListAPIView):
 
     - `/search/?q=cakephp`
     - `/search/?q=python`
+
+    This endpoint uses the same filter mechanism as the Book endpoint.
+    e.g.
+    - `/search/?q=cakephp&categories=computers`
     """
     model = Book
     serializer_class = BookSerializer
