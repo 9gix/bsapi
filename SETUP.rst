@@ -14,6 +14,7 @@ You Don't Say?
 #. `Setup VirtualEnv`_
 #. `Setup VirtualEnvWrapper`_
 #. `Setup Sqlite3`_
+#. `Setup Pillow`_
 
 Prerequisite (For Server)
 ----------------------
@@ -46,11 +47,11 @@ Installation for Developer
     # Run Test
     python manage.py test
 
-    # Runserver
-    python manage.py runserver
-
     # For Test Data on your local machine
     python manage.py loaddata fixtures/dump_data.json
+
+    # Runserver
+    python manage.py runserver
 
 Installation for Server
 -----------------------
@@ -74,7 +75,6 @@ Installation for Server (Ubuntu)
 
 
 
-
 .. _Setup Python 3: https://wiki.python.org/moin/BeginnersGuide/Download
 .. _Setup Git: http://virtualenvwrapper.readthedocs.org/en/latest/install.html
 .. _Setup VirtualEnv: http://virtualenvwrapper.readthedocs.org/en/latest/install.html
@@ -83,3 +83,4 @@ Installation for Server (Ubuntu)
 .. _Setup PostgreSQL: https://wiki.postgresql.org/wiki/Detailed_installation_guides
 .. _Setup Redis: http://redis.io/download
 .. _Setup ElasticSearch: http://www.elasticsearch.org/overview/elasticsearch/
+.. _Setup Pillow: http://pillow.readthedocs.org/en/latest/installation.html
