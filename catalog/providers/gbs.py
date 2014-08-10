@@ -11,6 +11,8 @@ URL = HTTP_PROTOCOL + SERVER_URL + RESOURCE_URL
 
 class BookService(object):
     def search(query):
+        if (len(query) in [10, 13] and query.isdigit()):
+            query = 'isbn:' + query
         query = parse.urlencode({'q':query})
         response = request.urlopen("{}?{}".format(URL, query))
         content = response.read().decode('utf8')

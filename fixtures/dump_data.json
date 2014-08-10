@@ -1,232 +1,857 @@
 [
 {
-    "fields": {
-        "domain": "localhost:8000",
-        "name": "Local Book Share"
-    },
-    "model": "sites.site",
-    "pk": 1
-},
-{
-    "model": "auth.user",
     "pk": 1,
     "fields": {
-        "groups": [],
-        "username": "eugene",
-        "email": "",
-        "first_name": "",
-        "date_joined": "2014-02-22T17:39:07.274Z",
-        "is_active": true,
-        "user_permissions": [],
-        "last_name": "",
-        "is_staff": true,
         "password": "pbkdf2_sha256$12000$buL3cno9F8Ww$j5CFxgrh62c7TxWN+PC0g+CPIvqX8CPV+G6mrbH1Snk=",
-        "last_login": "2014-02-23T15:48:18.378Z",
-        "is_superuser": true
-    }
-},
-{
-    "model": "auth.user",
-    "pk": 3,
-    "fields": {
-        "groups": [],
-        "username": "user1",
-        "email": "",
-        "first_name": "",
-        "date_joined": "2014-05-10T12:36:50.406Z",
-        "is_active": true,
         "user_permissions": [],
-        "last_name": "",
-        "is_staff": false,
-        "password": "pbkdf2_sha256$12000$SW1LX9LMR0ch$ISfi6wkeM+WdyBu5sQofnKbGxY9ww5s7LVMg5K69FOM=",
-        "last_login": "2014-05-10T12:36:50.406Z",
-        "is_superuser": false
-    }
-},
-{
-    "model": "auth.user",
-    "pk": 4,
-    "fields": {
-        "groups": [],
-        "username": "user2",
+        "last_login": "2014-08-10T18:23:29.587Z",
         "email": "",
-        "first_name": "",
-        "date_joined": "2014-05-10T12:36:50.485Z",
         "is_active": true,
-        "user_permissions": [],
+        "first_name": "",
+        "is_staff": true,
         "last_name": "",
-        "is_staff": false,
-        "password": "pbkdf2_sha256$12000$6dMYgeCpfs5z$niGSgfwp4I+AiJxAmU6rXz45wogpG/w0/dmN8anXs0w=",
-        "last_login": "2014-05-10T12:36:50.485Z",
-        "is_superuser": false
-    }
-},
-{
-    "model": "auth.user",
-    "pk": 5,
-    "fields": {
+        "is_superuser": true,
+        "username": "eugene",
         "groups": [],
-        "username": "user3",
-        "email": "",
-        "first_name": "",
-        "date_joined": "2014-05-10T12:36:50.594Z",
-        "is_active": true,
-        "user_permissions": [],
-        "last_name": "",
-        "is_staff": false,
-        "password": "pbkdf2_sha256$12000$axzPO64mrfuP$kvlEZBELC4wrYKqYYN3emi5diZUO9JRf83BuXU40FiU=",
-        "last_login": "2014-05-10T12:36:50.594Z",
-        "is_superuser": false
-    }
+        "date_joined": "2014-02-22T17:39:07.274Z"
+    },
+    "model": "auth.user"
 },
 {
-    "model": "catalog.book",
-    "pk": 4,
+    "pk": 13,
     "fields": {
-        "published_on": "2014-01-03",
-        "isbn13": "9780321965516",
-        "authors": [
-            5
-        ],
-        "categories": [],
         "subtitle": "",
-        "title": "Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability",
-        "thumbnail": "",
-        "publisher": 4
-    }
-},
-{
-    "model": "catalog.book",
-    "pk": 6,
-    "fields": {
-        "published_on": "2002-11-22",
-        "isbn13": "9780201734843",
+        "isbn13": "9780071279512",
         "authors": [
-            3,
-            4
+            19
         ],
-        "categories": [],
-        "subtitle": "",
-        "title": "C++ Templates: The Complete Guide",
+        "published_on": null,
+        "description": "",
+        "publisher": null,
+        "title": "Introductory Mathematics",
         "thumbnail": "",
-        "publisher": 3
-    }
+        "categories": [
+            1
+        ]
+    },
+    "model": "catalog.book"
 },
 {
-    "model": "catalog.book",
-    "pk": 7,
+    "pk": 23,
     "fields": {
-        "published_on": "2013-10-29",
-        "isbn13": "9780345535528",
+        "subtitle": "A One-Page Method For Reinventing Your Career",
+        "isbn13": "9781118225998",
         "authors": [
+            34,
+            35,
+            36
+        ],
+        "published_on": "2012-03-12",
+        "description": "A one-page tool to reinvent yourself and your career The global bestseller Business Model Generation introduced a unique visual way to summarize and creatively brainstorm any business or product idea on a single sheet of paper. Business Model You uses the same powerful one-page tool to teach readers how to draw \"personal business models,\" which reveal new ways their skills can be adapted to the changing needs of the marketplace to reveal new, more satisfying, career and life possibilities. Produced by the same team that created Business Model Generation, this book is based on the Business Model Canvas methodology, which has quickly emerged as the world's leading business model description and innovation technique. This book shows readers how to: Understand business model thinking and diagram their current personal business model Understand the value of their skills in the marketplace and define their purpose Articulate a vision for change Create a new personal business model harmonized with that vision, and most important, test and implement the new model When you implement the one-page tool from Business Model You, you create a game-changing business model for your life and career.",
+        "publisher": 15,
+        "title": "Business Model You",
+        "thumbnail": "",
+        "categories": [
             2
-        ],
-        "categories": [],
-        "subtitle": "",
-        "title": "A Game of Thrones",
-        "thumbnail": "",
-        "publisher": 2
-    }
+        ]
+    },
+    "model": "catalog.book"
 },
 {
-    "model": "catalog.author",
+    "pk": 41,
+    "fields": {
+        "subtitle": "A Common Sense Approach to Web Usability",
+        "isbn13": "9780133597264",
+        "authors": [
+            63
+        ],
+        "published_on": "2013-12-23",
+        "description": "Since Don\u2019t Make Me Think was first published in 2000, hundreds of thousands of Web designers and developers have relied on usability guru Steve Krug\u2019s guide to help them understand the principles of intuitive navigation and information design. Witty, commonsensical, and eminently practical, it\u2019s one of the best-loved and most recommended books on the subject. Now Steve returns with fresh perspective to reexamine the principles that made Don\u2019t Make Me Think a classic\u2013with updated examples and a new chapter on mobile usability. And it\u2019s still short, profusely illustrated\u2026and best of all\u2013fun to read. If you\u2019ve read it before, you\u2019ll rediscover what made Don\u2019t Make Me Think so essential to Web designers and developers around the world. If you\u2019ve never read it, you\u2019ll see why so many people have said it should be required reading for anyone working on Web sites. \u201cAfter reading it over a couple of hours and putting its ideas to work for the past five years, I can say it has done more to improve my abilities as a Web designer than any other book.\u201d \u2013Jeffrey Zeldman, author of Designing with Web Standards",
+        "publisher": 27,
+        "title": "Don't Make Me Think, Revisited",
+        "thumbnail": "",
+        "categories": [
+            3
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 46,
+    "fields": {
+        "subtitle": "Revised and Expanded Edition",
+        "isbn13": "9780465072996",
+        "authors": [
+            69
+        ],
+        "published_on": null,
+        "description": "Even the smartest among us can feel inept as we fail to figure out which light switch or oven burner to turn on, or whether to push, pull, or slide a door. The fault, argues this ingenious\u2014even liberating\u2014book, lies not in ourselves, but in product design that ignores the needs of users and the principles of cognitive psychology. The problems range from ambiguous and hidden controls to arbitrary relationships between controls and functions, coupled with a lack of feedback or other assistance and unreasonable demands on memorization. The Design of Everyday Things shows that good, usable design is possible. The rules are simple: make things visible, exploit natural relationships that couple function and control, and make intelligent use of constraints. The goal: guide the user effortlessly to the right action on the right control at the right time. In this entertaining and insightful analysis, cognitive scientist Donald A. Norman hails excellence of design as the most important key to regaining the competitive edge in influencing consumer behavior. Now fully expanded and updated, with a new introduction by the author, The Design of Everyday Things is a powerful primer on how\u2014and why\u2014some products satisfy customers while others only frustrate them.",
+        "publisher": 29,
+        "title": "The Design of Everyday Things",
+        "thumbnail": "",
+        "categories": [
+            10
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 58,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9780435283681",
+        "authors": [
+            85
+        ],
+        "published_on": null,
+        "description": "Available either with or without an answer key (for classrooom use or self-study), this grammar book deals with problems encountered by ELT students at elementary level. It draws on everyday situations, real people and the student's own experiences to provide help in understanding the language. Reference and practice sections are graded in difficulty, to make the book suitable for students from beginner to upper-elementary level. Grammar points are introduced in the order in which students will meet them in most coursebooks, and the book has an American English appendix.",
+        "publisher": 34,
+        "title": "The Heinemann Elementary English Grammar",
+        "thumbnail": "",
+        "categories": [
+            18
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 84,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9780262533058",
+        "authors": [
+            109
+        ],
+        "published_on": null,
+        "description": "A new edition of the essential text and professional reference, with substantial newmaterial on such topics as vEB trees, multithreaded algorithms, dynamic programming, and edge-baseflow.",
+        "publisher": 52,
+        "title": "Introduction to Algorithms",
+        "thumbnail": "",
+        "categories": [
+            3
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 92,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9780495391326",
+        "authors": [
+            134
+        ],
+        "published_on": "2010-08-04",
+        "description": "Susanna Epp's DISCRETE MATHEMATICS WITH APPLICATIONS, FOURTH EDITION provides a clear introduction to discrete mathematics. Renowned for her lucid, accessible prose, Epp explains complex, abstract concepts with clarity and precision. This book presents not only the major themes of discrete mathematics, but also the reasoning that underlies mathematical thought. Students develop the ability to think abstractly as they study the ideas of logic and proof. While learning about such concepts as logic circuits and computer addition, algorithm analysis, recursive thinking, computability, automata, cryptography, and combinatorics, students discover that the ideas of discrete mathematics underlie and are essential to the science and technology of the computer age. Overall, Epp's emphasis on reasoning provides students with a strong foundation for computer science and upper-level mathematics courses. Important Notice: Media content referenced within the product description or the product text may not be available in the ebook version.",
+        "publisher": 56,
+        "title": "Discrete Mathematics with Applications",
+        "thumbnail": "",
+        "categories": [
+            1
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 127,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9780141033570",
+        "authors": [
+            174
+        ],
+        "published_on": null,
+        "description": "The New York Times Bestseller, acclaimed by author such as Freakonomics co-author Steven D. Levitt, Black Swan author Nassim Nicholas Taleb and Nudge co-author Richard Thaler, Thinking Fast and Slow offers a whole new look at the way our minds work, and how we make decisions.Why is there more chance we'll believe something if it's in a bold type face? Why are judges more likely to deny parole before lunch? Why do we assume a good-looking person will be more competent? The answer lies in the two ways we make choices: fast, intuitive thinking, and slow, rational thinking. This book reveals how our minds are tripped up by error and prejudice (even when we think we are being logical), and gives you practical techniques for slower, smarter thinking. It will enable to you make better decisions at work, at home, and in everything you do.",
+        "publisher": 30,
+        "title": "Thinking, Fast and Slow",
+        "thumbnail": "",
+        "categories": [
+            8
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 162,
+    "fields": {
+        "subtitle": "A Game Theorist's Guide to Success in Business and Life",
+        "isbn13": "9780393337174",
+        "authors": [
+            204,
+            212
+        ],
+        "published_on": "2009-12-22",
+        "description": "The authors of Thinking Strategically demonstrate how to apply the principles in game theory to achieve greater personal and professional successes, drawing on a diverse array of case studies to explain how to develop a win-oriented way of seeing the world.",
+        "publisher": 89,
+        "title": "The Art of Strategy",
+        "thumbnail": "",
+        "categories": [
+            2
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 163,
+    "fields": {
+        "subtitle": "The Power of Financial Education : what Schools Will Never Teach You about Money",
+        "isbn13": "9781612680101",
+        "authors": [
+            213
+        ],
+        "published_on": null,
+        "description": "Examines the traditional assumptions of obtaining financial security through salaried jobs and and small business, and presents advice on pursuing opportunities as an entrepreneur to achieve wealth.",
+        "publisher": 90,
+        "title": "Unfair Advantage",
+        "thumbnail": "",
+        "categories": [
+            2
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 182,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9780340977736",
+        "authors": [
+            223,
+            224
+        ],
+        "published_on": null,
+        "description": "A lot of professors give talks titled The Last Lecture. Professors are asked to consider their demise and to ruminate on what matters most to them: What wisdom would we impart to the world if we knew it was our last chance? If we had to vanish tomorrow, what would we want as our legacy? When Randy Pausch, a computer science professor at Carnegie Mellon, was asked to give such a lecture, he didnt have to imagine it as his last, since he had recently been diagnosed with terminal cancer. But the lecture he gave, Really Achieving Your Childhood Dreams, wasnt about dying. It was about the importance of overcoming obstacles, of enabling the dreams of others, of seizing every moment (because time is all you have and you may find one day that you have less than you think). It was a summation of everything Randy had come to believe. It was about living. In this book, Randy Pausch has combined the humour, inspiration, and intelligence that made his lecture such a phenomenon and given it an indelible form. It is a book that will be shared for generations to come.",
+        "publisher": null,
+        "title": "The Last Lecture",
+        "thumbnail": "",
+        "categories": [
+            32
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 183,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9781430238652",
+        "authors": [
+            231,
+            232,
+            233
+        ],
+        "published_on": "2011-11-29",
+        "description": "HTML5 is here, and with it, web applications have acquired power, ease, scalability, and responsiveness like never before. With this book, developers will learn how to use the latest cutting-edge HTML5 web technology\u2014available in the most recent versions of modern browsers\u2014to build web applications with unparalleled functionality, speed, and responsiveness. This new edition includes major revisions for WebSockets functionality, reflecting the new W3C specification. It also features new chapters covering the drag-and-drop API as well as SVG. Explains how to create real-time HTML5 applications that tap the full potential of modern browsers Provides practical, real-world examples of HTML5 features in action Covers all the new HTML5 APIs to get you up-to-speed quickly with HTML5 Fully updated to include the latest revisions of the WebSocket API, and much more. What you\u2019ll learn How the HTML5 specification has evolved How to develop cutting-edge web applications using new HTML5 features like WebSockets, geolocation, web storage, Canvas, and audio/video Which features are available in modern browsers Who this book is for Web designers and developers who want to use the latest cutting-edge technology available in current browsers Developers who want to create dynamic, HTML5 web applications Developers who want to know which HTML5 features are supported by modern browsers Table of Contents Overview of HTML5 Using the Canvas API Working With Scalable Vector Graphics Working with Audio and Video Using the Geolocation API Using the Communication APIs Using the WebSocket API Using the Forms API Working with Drag-and-Drop Using the Web Workers API Using the Storage APIs Creating Offline Web Applications The Future of HTML5",
+        "publisher": 100,
+        "title": "Pro HTML5 Programming",
+        "thumbnail": "",
+        "categories": [
+            3
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 201,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9780071326445",
+        "authors": [
+            261
+        ],
+        "published_on": null,
+        "description": "Strategic Management of Technological Innovation, 4e by Melissa Schilling is the first comprehensive and rigorous, yet accessible text for the Technology and Innovation Management course. Unlike other books, Schilling's approach synthesizes the major research in the field, providing students with the knowledge needed to enhance case discussion and analysis. The subject is approached as a strategic process, and as such, is organized to mirror the strategic management process used in most strategy textbooks, progressing from assessing the competitive dynamics of a situation, to strategy formulation, to strategy implementation. As a brief, affordable paperback, it is ideal to package with cases. Recommended case sets from the author are available through McGraw-Hill Create or from the Harvard Business School Case Database.",
+        "publisher": 104,
+        "title": "Strategic Management of Technological Innovation",
+        "thumbnail": "",
+        "categories": [
+            3
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 219,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9780133041705",
+        "authors": [
+            284,
+            285
+        ],
+        "published_on": null,
+        "description": "A book that provides a treatment of microeconomic theory that stresses the relevance and application to managerial and public policy decision making.",
+        "publisher": 109,
+        "title": "Microeconomics",
+        "thumbnail": "",
+        "categories": [
+            46
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 230,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9780321910936",
+        "authors": [
+            299,
+            300
+        ],
+        "published_on": "2013-01-01",
+        "description": "Walkers goal is to help you make the connection between a conceptual understanding of physics and the various skills necessary to solve quantitative problems. The pedagogy and approach are based on over 20 years of teaching and reflect the results of physics education research. Already one of the best-selling textbooks in algebra-based physics, The Fourth Edition strengthens both the conceptual foundations and the tools for problem solving to make the book even better suited to today's students. Physics, Fourth Edition Technology Update, is accompanied by a significantly more robust MasteringPhysics(r)the most advanced, educationally effective, and widely used online physics tutorial and homework system in the world. Additionally, QR codes appear throughout the textbook, enabling you to use your smartphone or tablet to instantly watch interactive videos about relevant demonstrations or problem-solving strategies. 032190303X / 9780321903037 Physics Technology Update Plus MasteringPhysics with eText -- Access Card Package Package consists of: 0321570111 / 9780321570116 MasteringPhysics with Pearson eText Student Access Kit (ME component 0321903080 / 9780321903082 Physics Technology Update",
+        "publisher": 110,
+        "title": "Physics Technology Update",
+        "thumbnail": "",
+        "categories": [
+            13
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 244,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9780136256908",
+        "authors": [
+            330,
+            336
+        ],
+        "published_on": null,
+        "description": "",
+        "publisher": 45,
+        "title": "Technical Mathematics with Calculus",
+        "thumbnail": "",
+        "categories": [
+            1
+        ]
+    },
+    "model": "catalog.book"
+},
+{
+    "pk": 245,
+    "fields": {
+        "subtitle": "",
+        "isbn13": "9781444759549",
+        "authors": [
+            188
+        ],
+        "published_on": null,
+        "description": "THE SUNDAY TIMES BESTSELLER THE TIMES BESTSELLER MAIL ON SUNDAY BESTSELLER GUARDIAN BESTSELLER AMAZON TOP TEN BESTSELLER LIVE MAGAZINE BESTSELLER IRISH TIMES NUMBER 1 BESTSELLER THE SECRETS OF PERFECT DECISION-MAKING Have you ever... Invested time in something that, with hindsight, just wasn't worth it? Overpaid in an Ebay auction? Continued doing something you knew was bad for you? Sold stocks too late, or too early? Taken credit for success, but blamed failure on external circumstances? Backed the wrong horse? These are examples of cognitive biases, simple errors we all make in our day-to-day thinking. But by knowing what they are and how to spot them, we can avoid them and make better choices - whether dealing with a personal problem or a business negotiation; trying to save money or make money; working out what we do or don't want in life, and how best to get it. Already an international bestseller, THE ART OF THINKING CLEARLY is essential reading for anyone with important decisions to make. It reveals, in 100 short chapters, the most common errors of judgement, and how to avoid them. Simple, clear and always surprising, this indispensable book will change the way you think and transform your decision-making - at work, at home, every day.",
+        "publisher": null,
+        "title": "The Art of Thinking Clearly",
+        "thumbnail": "",
+        "categories": [
+            2
+        ]
+    },
+    "model": "catalog.book"
+},
+{
     "pk": 1,
     "fields": {
-        "name": "Eugene"
-    }
+        "name": "Mathematics",
+        "slug": "mathematics"
+    },
+    "model": "catalog.category"
 },
 {
-    "model": "catalog.author",
     "pk": 2,
     "fields": {
-        "name": "George Raymond Richard Martin"
-    }
+        "name": "Business & Economics",
+        "slug": "business-economics"
+    },
+    "model": "catalog.category"
 },
 {
-    "model": "catalog.author",
     "pk": 3,
     "fields": {
-        "name": "David Vandevoorde"
-    }
+        "name": "Computers",
+        "slug": "computers"
+    },
+    "model": "catalog.category"
 },
 {
-    "model": "catalog.author",
-    "pk": 4,
+    "pk": 8,
     "fields": {
-        "name": "Nicolai M. Josuttis"
-    }
+        "name": "Psychology",
+        "slug": "psychology"
+    },
+    "model": "catalog.category"
 },
 {
-    "model": "catalog.author",
-    "pk": 5,
+    "pk": 10,
+    "fields": {
+        "name": "ART",
+        "slug": "art"
+    },
+    "model": "catalog.category"
+},
+{
+    "pk": 13,
+    "fields": {
+        "name": "Physics",
+        "slug": "physics"
+    },
+    "model": "catalog.category"
+},
+{
+    "pk": 18,
+    "fields": {
+        "name": "English language",
+        "slug": "english-language"
+    },
+    "model": "catalog.category"
+},
+{
+    "pk": 32,
+    "fields": {
+        "name": "Biography & Autobiography",
+        "slug": "biography-autobiography"
+    },
+    "model": "catalog.category"
+},
+{
+    "pk": 46,
+    "fields": {
+        "name": "Microeconomics",
+        "slug": "microeconomics"
+    },
+    "model": "catalog.category"
+},
+{
+    "pk": 19,
+    "fields": {
+        "name": "Wee Seng Ng"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 34,
+    "fields": {
+        "name": "Timothy Clark"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 35,
+    "fields": {
+        "name": "Alexander Osterwalder"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 36,
+    "fields": {
+        "name": "Yves Pigneur"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 63,
     "fields": {
         "name": "Steve Krug"
-    }
+    },
+    "model": "catalog.author"
 },
 {
-    "model": "catalog.publisher",
-    "pk": 2,
+    "pk": 69,
     "fields": {
-        "name": "Bantam"
-    }
+        "name": "Donald A. Norman"
+    },
+    "model": "catalog.author"
 },
 {
-    "model": "catalog.publisher",
-    "pk": 3,
+    "pk": 85,
     "fields": {
-        "name": "Addison-Wesley Professional"
-    }
+        "name": "Digby Beaumont"
+    },
+    "model": "catalog.author"
 },
 {
-    "model": "catalog.publisher",
-    "pk": 4,
+    "pk": 109,
+    "fields": {
+        "name": "Thomas H. Cormen"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 134,
+    "fields": {
+        "name": "Susanna Epp"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 174,
+    "fields": {
+        "name": "Daniel Kahneman"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 188,
+    "fields": {
+        "name": "Rolf Dobelli"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 204,
+    "fields": {
+        "name": "Avinash K. Dixit"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 212,
+    "fields": {
+        "name": "Barry Nalebuff"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 213,
+    "fields": {
+        "name": "Robert T. Kiyosaki"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 223,
+    "fields": {
+        "name": "Randy Pausch"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 224,
+    "fields": {
+        "name": "Jeffrey Zaslow"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 231,
+    "fields": {
+        "name": "Peter Lubbers"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 232,
+    "fields": {
+        "name": "Frank Salim"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 233,
+    "fields": {
+        "name": "Brian Albers"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 261,
+    "fields": {
+        "name": "Melissa A. Schilling"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 284,
+    "fields": {
+        "name": "Robert S. Pindyck"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 285,
+    "fields": {
+        "name": "Daniel L. Rubinfeld"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 299,
+    "fields": {
+        "name": "Assistant Professor Department of Mathematics James S Walker"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 300,
+    "fields": {
+        "name": "James S. Walker"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 330,
+    "fields": {
+        "name": "Paul Calter"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 336,
+    "fields": {
+        "name": "David Egerton"
+    },
+    "model": "catalog.author"
+},
+{
+    "pk": 15,
+    "fields": {
+        "name": "John Wiley & Sons"
+    },
+    "model": "catalog.publisher"
+},
+{
+    "pk": 27,
     "fields": {
         "name": "New Riders"
-    }
+    },
+    "model": "catalog.publisher"
 },
 {
-    "model": "ownership.userbook",
-    "pk": 1,
+    "pk": 29,
     "fields": {
-        "current_holder": 3,
-        "owner": 3,
-        "book": 4
-    }
+        "name": "Basic Books"
+    },
+    "model": "catalog.publisher"
 },
 {
-    "model": "ownership.userbook",
-    "pk": 2,
+    "pk": 30,
     "fields": {
-        "current_holder": 3,
-        "owner": 3,
-        "book": 6
-    }
+        "name": "Penguin UK"
+    },
+    "model": "catalog.publisher"
 },
 {
-    "model": "ownership.userbook",
-    "pk": 3,
+    "pk": 34,
     "fields": {
-        "current_holder": 4,
-        "owner": 4,
-        "book": 7
-    }
+        "name": "MacMillan Education, Limited"
+    },
+    "model": "catalog.publisher"
 },
 {
-    "model": "ownership.userbook",
-    "pk": 6,
+    "pk": 45,
     "fields": {
-        "current_holder": 5,
-        "owner": 5,
-        "book": 4
-    }
+        "name": "Prentice Hall"
+    },
+    "model": "catalog.publisher"
 },
 {
-    "model": "ownership.userbook",
-    "pk": 7,
+    "pk": 52,
     "fields": {
-        "current_holder": 4,
-        "owner": 4,
-        "book": 6
-    }
+        "name": "MIT Press (MA)"
+    },
+    "model": "catalog.publisher"
+},
+{
+    "pk": 56,
+    "fields": {
+        "name": "Cengage Learning"
+    },
+    "model": "catalog.publisher"
+},
+{
+    "pk": 89,
+    "fields": {
+        "name": "W. W. Norton"
+    },
+    "model": "catalog.publisher"
+},
+{
+    "pk": 90,
+    "fields": {
+        "name": "Plata Pub"
+    },
+    "model": "catalog.publisher"
+},
+{
+    "pk": 100,
+    "fields": {
+        "name": "Apress"
+    },
+    "model": "catalog.publisher"
+},
+{
+    "pk": 104,
+    "fields": {
+        "name": "McGraw-Hill Higher Education"
+    },
+    "model": "catalog.publisher"
+},
+{
+    "pk": 109,
+    "fields": {
+        "name": "Pearson/Education"
+    },
+    "model": "catalog.publisher"
+},
+{
+    "pk": 110,
+    "fields": {
+        "name": "Pearson Educacion"
+    },
+    "model": "catalog.publisher"
+},
+{
+    "pk": 8,
+    "fields": {
+        "current_holder": 1,
+        "book": 13,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 9,
+    "fields": {
+        "current_holder": 1,
+        "book": 23,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 10,
+    "fields": {
+        "current_holder": 1,
+        "book": 41,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 11,
+    "fields": {
+        "current_holder": 1,
+        "book": 58,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 12,
+    "fields": {
+        "current_holder": 1,
+        "book": 84,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 13,
+    "fields": {
+        "current_holder": 1,
+        "book": 92,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 14,
+    "fields": {
+        "current_holder": 1,
+        "book": 46,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 15,
+    "fields": {
+        "current_holder": 1,
+        "book": 127,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 16,
+    "fields": {
+        "current_holder": 1,
+        "book": 162,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 17,
+    "fields": {
+        "current_holder": 1,
+        "book": 163,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 18,
+    "fields": {
+        "current_holder": 1,
+        "book": 182,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 19,
+    "fields": {
+        "current_holder": 1,
+        "book": 183,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 20,
+    "fields": {
+        "current_holder": 1,
+        "book": 201,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 21,
+    "fields": {
+        "current_holder": 1,
+        "book": 219,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 22,
+    "fields": {
+        "current_holder": 1,
+        "book": 230,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 23,
+    "fields": {
+        "current_holder": 1,
+        "book": 244,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
+},
+{
+    "pk": 24,
+    "fields": {
+        "current_holder": 1,
+        "book": 245,
+        "owner": 1
+    },
+    "model": "ownership.userbook"
 }
 ]

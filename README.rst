@@ -7,10 +7,11 @@ BookShare is a digital bookshelf.
 - Share
 - Donate
 
-Setup Guide
------------
+Documentation
+-------------
 
-* `Developer Setup Guide </SETUP.rst>`_
+* `Project Setup </SETUP.rst>`_
+* `Developer Guide </GUIDE.rst>`_
 
 Technical Specification
 -----------------------
