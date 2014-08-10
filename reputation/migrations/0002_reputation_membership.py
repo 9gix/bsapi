@@ -8,6 +8,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('reputation', '0001_initial'),
+        ('communities', '__first__'),
     ]
 
     operations = [
