@@ -183,11 +183,10 @@ BROKER_URL = "amqp://guest:guest@localhost:5672//"
 CELERY_RESULT_BACKEND = 'amqp://'
 
 # CORS
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:9000',
     'localhost:9000',
-    'l:9000',
     '9gix.github.io',
 )
 CORS_ALLOW_CREDENTIALS = True
