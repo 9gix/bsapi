@@ -12,6 +12,7 @@ class UserBook(models.Model):
     current_holder = models.ForeignKey(settings.AUTH_USER_MODEL,
             related_name='borrowed_books')
 
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return "%s (owner: %s)" % (self.book, self.owner)

@@ -11,7 +11,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('ownership', '__first__'),
     ]
 
     operations = [
@@ -36,7 +35,6 @@ class Migration(migrations.Migration):
                 ('thumbnail', models.ImageField(blank=True, upload_to='')),
                 ('published_on', models.DateField(null=True, blank=True)),
                 ('authors', models.ManyToManyField(to='catalog.Author')),
-                ('owners', models.ManyToManyField(through='ownership.UserBook', to=settings.AUTH_USER_MODEL)),
             ],
             options={
             },
