@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from rest_framework import viewsets
 from rest_framework import permissions
+from rest_framework import filters
 
 from ownership.models import UserBook
 from ownership.serializers import UserBookSerializer
@@ -16,6 +17,8 @@ class UserBookViewSet(viewsets.ModelViewSet):
         IsOwnerOrAdminElseReadOnly,
     )
     filter_class = UserBookFilter
+    filter_backends = (filters.OrderingFilter, filters.DjangoFilterBackend)
+    ordering_fields = ('created_at',)
 
 class MyBookViewSet(viewsets.ModelViewSet):
     model = UserBook
