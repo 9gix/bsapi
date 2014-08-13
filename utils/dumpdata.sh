@@ -9,4 +9,4 @@
 # > Publisher.objects.filter(book__isnull=True).delete()
 # > Category.objects.filter(book__isnull=True).delete()
 
-python manage.py dumpdata auth.user catalog.book catalog.category catalog.author catalog.publisher ownership.userbook --indent=4 > fixtures/dump_data.json
+python manage.py dumpdata auth.user catalog.book catalog.category catalog.author catalog.publisher ownership.userbook sites.site --indent=4 > fixtures/dump_data.json

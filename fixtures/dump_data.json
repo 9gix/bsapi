@@ -870,5 +870,13 @@
     },
     "pk": 24,
     "model": "ownership.userbook"
+},
+{
+    "fields": {
+        "name": "Bookcycle API",
+        "domain": "bookcycle.in"
+    },
+    "model": "sites.site",
+    "pk": 1
 }
 ]
