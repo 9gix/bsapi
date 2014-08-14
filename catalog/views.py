@@ -1,7 +1,14 @@
 import logging
+import urllib
+import shutil
+import os
 from datetime import datetime
 
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.files import File
+from django.core.files.temp import NamedTemporaryFile
+from django.conf import settings
+
 from haystack.inputs import Clean
 from haystack.query import SearchQuerySet
 from rest_framework import viewsets
@@ -112,6 +119,17 @@ class BookProviderView(generics.ListAPIView):
             else:
                 book_data['published_on'] = pubdate
 
+            # Thumbnail
+            thumbnail_url = book_data.get('imageLinks', {}).get('thumbnail')
+            headers = {'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'}
+            req = urllib.request.Request(thumbnail_url, headers=headers)
+            image_path = os.path.join(
+                    settings.MEDIA_ROOT,
+                    book_data.get('isbn') + '.jpg')
+            # Storing Image
+            with urllib.request.urlopen(req) as resp:
+                with open(image_path, 'wb') as outfile:
+                    shutil.copyfileobj(resp, outfile)
 
             if book_data.get('isbn'):
                 try:
@@ -119,13 +137,17 @@ class BookProviderView(generics.ListAPIView):
                 except ObjectDoesNotExist:
                     book = None
 
-                serializer = self.serializer_class(book, data=book_data)
-                if serializer.is_valid():
-                    serializer.save()
-                    book_list.append(serializer.object)
-                else:
-                    logger.warning(serializer.errors)
-                    logger.warning(book_data)
+                with open(image_path, 'rb') as img_data:
+                    files = {'thumbnail': File(img_data)}
+
+                    serializer = self.serializer_class(book, data=book_data,
+                            files=files)
+                    if serializer.is_valid():
+                        serializer.save()
+                        book_list.append(serializer.object)
+                    else:
+                        logger.warning(serializer.errors)
+                        logger.warning(book_data)
 
         return book_list
 
