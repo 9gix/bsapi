@@ -26,7 +26,7 @@ class BookSerializer(serializers.ModelSerializer):
     categories = serializers.SlugRelatedField(many=True, slug_field='name')
     owners = serializers.RelatedField(many=True)
 
-    thumbnail = ThumbnailField()
+    thumbnail = ThumbnailField(required=False)
 
     class Meta:
         model = Book
